@@ -2,9 +2,11 @@ let provider = new ethers.providers.Web3Provider(window.ethereum)
 let signer
 
 
-const MultisigWalletAddress = "0x059F1b685D297ef48D2e1deB6a3090F132358B24"
+const MultisigWalletAddress = "0x132Fbe54C3736a39660b008364EB719980F701a5"
 const MultisigABI = ["function deposit() public payable",
-                     "function createProposal(string memory _title, string memory _description, uint256 _ethAmount, address payable _receiver) public onlyApprover",
+                     "function createProposal(string memory _title, string memory _description, uint256 _ethAmount, address payable _receiver) public",
+                     "function voteOnProposal(uint256 _id, bool _voteValue) public",
+                     "function claimProposal(uint _id) public",
                      "function getProposalTitle(uint256 _id) public view returns(string memory)",
                      "function getProposalDescription(uint256 _id) public view returns(string memory)",
                      "function getProposalEthAmount(uint256 _id) public view returns(uint256)",
@@ -17,7 +19,7 @@ const MultisigABI = ["function deposit() public payable",
 
 const interval = setInterval(function() {
     getEthBalance();
-    getAllApprovers();
+    //getAllApprovers();
 }, 0)
 
 
@@ -54,6 +56,16 @@ async function createProposal() {
                                                                      document.getElementById("createProposalInputDescription").value,
                                                                      document.getElementById("createProposalInputEthAmount").value,
                                                                      document.getElementById("createProposalInputReceiver").value)
+}
+
+async function voteOnProposal(result) {
+    const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
+    const txResponse = await contract.connect(signer).voteOnProposal(document.getElementById("voteInputId").value, result)
+}
+
+async function claimProposal() {
+    const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
+    const txResponse = await contract.connect(signer).claimProposal(document.getElementById("voteInputId").value)
 }
 
 async function getEthBalance() {

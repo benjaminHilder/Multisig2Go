@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote On Proposal</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+        type="application/javascript"></script>
+
+    <script src="app.js"></script>
+
+</head>
+<body>
+    <button onclick="connectMetamask()" id="connectWalletButton">Connect Wallet</button>
+    <h3 id="connectedText"></h3>
+    <p id="chainStatus"></p>
+    <h1>Vote On Proposal</h1>
+
+    <div>
+        <h2>Deposit Eth</h2>
+        <h3>Proposal ID:</h3>
+        <input type="number" id="voteInputId"> 
+        <br><br>
+        <button onclick="voteOnProposal(true)">True</button>
+        <button onclick="voteOnProposal(false)">False</button>
+        <br><br>
+        <button onclick="claimProposal()">Claim Proposal</button>
+    </div>
+
+        
+ 
+</body>
+</html>

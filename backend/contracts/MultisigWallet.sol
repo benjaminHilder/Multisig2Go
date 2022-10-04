@@ -18,6 +18,7 @@ contract MultisigWallet {
         uint256 approvals;
         uint256 disapprovals;
         bool isActive; //is proposal still active
+        bool isClaimed; //if proposal has ended but not enough either was in the contract to send
         bool finishedResult;
     }
 
@@ -83,7 +84,6 @@ contract MultisigWallet {
 
             hasVoted[_id][msg.sender] = true;
             currentVote[_id][msg.sender] = _voteValue;
-
         } else {
             if (_voteValue) {
                 proposals[_id].approvals += 1;
@@ -107,12 +107,25 @@ contract MultisigWallet {
             proposals[_id].isActive = false;
             proposals[_id].finishedResult = true;
 
-            proposals[_id].reciever.transfer(proposals[_id].ethAmount);
+            //allow the proposal to finish without having to send eth if not enough is in the contract
+            //to prevent people voting the final vote
+            if (address(this).balance >= proposals[_id].ethAmount){
+                proposals[_id].isClaimed = true;
+                proposals[_id].reciever.transfer(proposals[_id].ethAmount);
+            }
+
 
         } else if (proposals[_id].disapprovals >= amountToDisapprove) {
             proposals[_id].isActive = false;
             proposals[_id].finishedResult = false;
         }
+    }
+
+    //if proposal has ended but not enough either was in the contract to send
+    function claimProposal(uint _id) public onlyApprover {
+        require(proposals[_id].isActive == false, "Proposal cannot be claimed as it is still active");
+        require(proposals[_id].isClaimed == false, "This proposal has already been claimed");
+        proposals[_id].reciever.transfer(proposals[_id].ethAmount);
     }
 
     function getAllApprovers() public view returns(address[] memory) {
