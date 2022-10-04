@@ -4,7 +4,7 @@ let signer
 
 const MultisigWalletAddress = "0x059F1b685D297ef48D2e1deB6a3090F132358B24"
 const MultisigABI = ["function deposit() public payable",
-                     "function getAllApprovers() public view returns(address[] memory)",
+                     "function createProposal(string memory _title, string memory _description, uint256 _ethAmount, address payable _receiver) public onlyApprover",
                      "function getProposalTitle(uint256 _id) public view returns(string memory)",
                      "function getProposalDescription(uint256 _id) public view returns(string memory)",
                      "function getProposalEthAmount(uint256 _id) public view returns(uint256)",
@@ -46,6 +46,14 @@ async function connectMetamask() {
 async function depositEth() {
     const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
     const txResponse = await contract.connect(signer).deposit({value: ethers.utils.parseEther(document.getElementById("depositEthInput").value)});
+}
+
+async function createProposal() {
+    const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
+    const txResponse = await contract.connect(signer).createProposal(document.getElementById("createProposalInputTitle").value,
+                                                                     document.getElementById("createProposalInputDescription").value,
+                                                                     document.getElementById("createProposalInputEthAmount").value,
+                                                                     document.getElementById("createProposalInputReceiver").value)
 }
 
 async function getEthBalance() {

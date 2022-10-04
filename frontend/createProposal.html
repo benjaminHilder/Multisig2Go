@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Proposal</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+        type="application/javascript"></script>
+
+    <script src="app.js"></script>
+
+</head>
+<body>
+    <button onclick="connectMetamask()" id="connectWalletButton">Connect Wallet</button>
+    <h3 id="connectedText"></h3>
+    <p id="chainStatus"></p>
+    <h1>Create Proposal</h1>
+
+    <div>
+        <h2>Deposit Eth</h2>
+        <h3>Title:</h3>
+        <input id="createProposalInputTitle"> 
+        
+        <h3>Description:</h3>
+        <input id="createProposalInputDescription"> 
+        
+        <h3>Eth Amount:</h3>
+        <input type="number" id="createProposalInputEthAmount"> 
+        
+        <h3>Receiver Address:</h3>
+        <input id="createProposalInputReceiver"> 
+        <br><br>
+        <button id="createProposalButtonSubmit" onclick="createProposal()">Deposit</button>
+    </div>
+
+        
+ 
+</body>
+</html>
