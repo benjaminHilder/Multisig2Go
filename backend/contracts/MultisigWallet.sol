@@ -17,7 +17,7 @@ contract MultisigWallet {
         address payable reciever;
         uint256 approvals;
         uint256 disapprovals;
-        bool active; //is proposal still active
+        bool isActive; //is proposal still active
         bool finishedResult;
     }
 
@@ -55,7 +55,7 @@ contract MultisigWallet {
         newProposal.reciever = _receiver;
         newProposal.approvals = 0;
         newProposal.disapprovals = 0;
-        newProposal.active = true;
+        newProposal.isActive = true;
 
         proposals[iterator] = newProposal;
         iterator++;        
@@ -63,7 +63,7 @@ contract MultisigWallet {
 
     //user can change there vote with this function as well
     function voteOnProposal(uint256 _id, bool _voteValue) public onlyApprover {
-        require(proposals[_id].active == true, "proposal is not active, only active proposals can be voted on");
+        require(proposals[_id].isActive == true, "proposal is not active, only active proposals can be voted on");
 
         bool hasVotedValue = hasVoted[_id][msg.sender];
 
@@ -104,14 +104,58 @@ contract MultisigWallet {
         uint amountToDisapprove = amountToApprove + 1;
 
         if (proposals[_id].approvals >= amountToApprove) {
-            proposals[_id].active = false;
+            proposals[_id].isActive = false;
             proposals[_id].finishedResult = true;
 
             proposals[_id].reciever.transfer(proposals[_id].ethAmount);
 
         } else if (proposals[_id].disapprovals >= amountToDisapprove) {
-            proposals[_id].active = false;
+            proposals[_id].isActive = false;
             proposals[_id].finishedResult = false;
         }
+    }
+
+    function getAllApprovers() public view returns(address[] memory) {
+        return approvers;
+    }
+
+    function getProposalInfo(uint256 _id) public view returns(proposal memory) {
+        return proposals[_id];
+    }
+
+    //return proposals mapping wouldn't work when trying to display on dapp with js possibly wrote human readable abi incorrect
+    //ERROR in js: Uncaught (in promise) null: invalid codepoint at offset 76; unexpected continuation byte
+    
+    //stack too deep error (in remix) when returning each value in 1 function so a return of each variable seems as the current bandaid fix
+    function getProposalTitle(uint256 _id) public view returns(string memory) {
+        return proposals[_id].title;
+    }
+
+    function getProposalDescription(uint256 _id) public view returns(string memory) {
+        return proposals[_id].description;
+    }
+
+    function getProposalEthAmount(uint256 _id) public view returns(uint256) {
+        return proposals[_id].ethAmount;
+    }
+
+    function getProposalReciever(uint256 _id) public view returns(address payable) {
+        return proposals[_id].reciever;
+    }
+
+    function getProposalApprovals(uint256 _id) public view returns(uint256) {
+        return proposals[_id].approvals;
+    }
+
+    function getProposalDisapprovals(uint256 _id) public view returns(uint256) {
+        return proposals[_id].disapprovals;
+    }
+
+    function getProposalIsActive(uint256 _id) public view returns(bool) {
+        return proposals[_id].isActive;
+    }
+
+    function getProposalFinishedResult(uint256 _id) public view returns(bool) {
+        return proposals[_id].finishedResult;
     }
 }

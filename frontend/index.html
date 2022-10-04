@@ -21,15 +21,32 @@
     <h1>Multisig Wallet</h1>
 
     <div>
+        <h2>Deposit Eth</h2>
+        <input type="number" id="depositEthInput"> 
+        <br><br>
+        <button id="depositEthButton" onclick="depositEth()">Deposit</button>
+    </div>
+
+    <div>
         <h2>Eth Balance:</h2>
+        <p id="ethBalance"></p>
     </div>
 
     <div>    
         <h2>Approvers:</h2>
+        <p id="allApproversText"></p>
     </div>
 
     <p id="chain"></p>
     <p id="deployStatus"></p>
+
+    <div>
+        <input type="number" id="infoInput">
+        <br><br>
+        <button onclick="getProposalInfo()">get info</button>
+
+        <p id="info"></p>
+    </div>
     
     <div>
     </div>
