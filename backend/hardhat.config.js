@@ -8,6 +8,7 @@ require('dotenv').config();
 //0x71ee163df5fc2c93333a8880b671ab2aa190ed6a
 //0x059F1b685D297ef48D2e1deB6a3090F132358B24
 //0x132Fbe54C3736a39660b008364EB719980F701a5
+//0x586f504738f9f571130884328df9dce47af8b0a6
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {

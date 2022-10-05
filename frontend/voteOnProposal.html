@@ -23,12 +23,16 @@
     <div>
         <h2>Deposit Eth</h2>
         <h3>Proposal ID:</h3>
-        <input type="number" id="voteInputId"> 
+        <input type="number" id="infoInput"> 
         <br><br>
         <button onclick="voteOnProposal(true)">True</button>
         <button onclick="voteOnProposal(false)">False</button>
         <br><br>
         <button onclick="claimProposal()">Claim Proposal</button>
+        <h2>Get Proposal Info</h2>
+        <button onclick="getTitleAndDescription()">Get Info</button>
+        <p id="proposalTitle"></p>
+        <p id="proposalDescription"></p>
     </div>
 
         

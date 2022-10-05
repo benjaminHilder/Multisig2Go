@@ -1,12 +1,12 @@
 let provider = new ethers.providers.Web3Provider(window.ethereum)
 let signer
 
-
-const MultisigWalletAddress = "0x132Fbe54C3736a39660b008364EB719980F701a5"
+const MultisigWalletAddress = "0x586f504738f9f571130884328df9dce47af8b0a6"
 const MultisigABI = ["function deposit() public payable",
                      "function createProposal(string memory _title, string memory _description, uint256 _ethAmount, address payable _receiver) public",
                      "function voteOnProposal(uint256 _id, bool _voteValue) public",
                      "function claimProposal(uint _id) public",
+                     "function getAllApprovers() public view returns(address[] memory)",
                      "function getProposalTitle(uint256 _id) public view returns(string memory)",
                      "function getProposalDescription(uint256 _id) public view returns(string memory)",
                      "function getProposalEthAmount(uint256 _id) public view returns(uint256)",
@@ -19,7 +19,7 @@ const MultisigABI = ["function deposit() public payable",
 
 const interval = setInterval(function() {
     getEthBalance();
-    //getAllApprovers();
+    getAllApprovers();
 }, 0)
 
 
@@ -60,12 +60,12 @@ async function createProposal() {
 
 async function voteOnProposal(result) {
     const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
-    const txResponse = await contract.connect(signer).voteOnProposal(document.getElementById("voteInputId").value, result)
+    const txResponse = await contract.connect(signer).voteOnProposal(document.getElementById("infoInput").value, result)
 }
 
 async function claimProposal() {
     const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
-    const txResponse = await contract.connect(signer).claimProposal(document.getElementById("voteInputId").value)
+    const txResponse = await contract.connect(signer).claimProposal(document.getElementById("infoInput").value)
 }
 
 async function getEthBalance() {
@@ -89,6 +89,11 @@ async function getInfo() {
     getProposalDisapprovals();
     getProposalIsActive();
     getProposalFinishedResult();
+}
+
+async function getTitleAndDescription() {
+    getProposalTitle();
+    getProposalDescription();
 }
 
 async function getProposalTitle() {

@@ -26,7 +26,7 @@ contract MultisigWallet {
     mapping (uint256 => mapping(address => bool)) hasVoted;
     mapping (uint256 => mapping(address => bool)) currentVote;
 
-    uint iterator;
+    uint public proposalIterator;
     address contractDeployer;
 
     constructor(address[] memory _approvers, uint256 _percentageToAgree) {
@@ -36,7 +36,7 @@ contract MultisigWallet {
         approvers = _approvers;
 
         percentageToAgree = _percentageToAgree;
-        iterator = 0;
+        proposalIterator = 0;
         contractDeployer = msg.sender;
     }
 
@@ -58,8 +58,8 @@ contract MultisigWallet {
         newProposal.disapprovals = 0;
         newProposal.isActive = true;
 
-        proposals[iterator] = newProposal;
-        iterator++;        
+        proposals[proposalIterator] = newProposal;
+        proposalIterator++;        
     }
 
     //user can change there vote with this function as well
@@ -113,7 +113,6 @@ contract MultisigWallet {
                 proposals[_id].isClaimed = true;
                 proposals[_id].reciever.transfer(proposals[_id].ethAmount);
             }
-
 
         } else if (proposals[_id].disapprovals >= amountToDisapprove) {
             proposals[_id].isActive = false;
