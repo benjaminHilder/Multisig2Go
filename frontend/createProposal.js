@@ -14,27 +14,10 @@ const MultisigABI = ["function deposit() public payable",
                      "function getProposalApprovals(uint256 _id) public view returns(uint256)",
                      "function getProposalDisapprovals(uint256 _id) public view returns(uint256)",
                      "function getProposalIsActive(uint256 _id) public view returns(bool)",
-                     "function getProposalFinishedResult(uint256 _id) public view returns(bool)",
-                     "function getAllTitles() public view returns(string[] memory)",   
-                     "function getAllDescriptions() public view returns(string[] memory)",
-                     "function proposalIterator() public view returns(uint256)"                 
+                     "function getProposalFinishedResult(uint256 _id) public view returns(bool)"
                     ]
 
-
-window.onload = function() {
-    displayProposals();
-}
-
-async function displayProposals() {
-    const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
-    let proposals = ""
-    for (i = 0; i < await contract.proposalIterator(); i++) {
-        proposals += i+1 +")<br>"
-        proposals += "Title: " +  await contract.getProposalTitle(i) + "<br>";
-        proposals += "Description: " + await contract.getProposalDescription(i) + "<br> <br>";
-    }
-    document.getElementById("proposals").innerHTML = proposals;
-}
+                    
 
 async function connectMetamask() {
     await provider.send("eth_requestAccounts", []);
@@ -56,4 +39,12 @@ async function connectMetamask() {
 
     console.log("Account address: ", await signer.getAddress())
     console.log("chain name: " + chainName)
+}
+
+async function createProposal() {
+    const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
+    const txResponse = await contract.connect(signer).createProposal(document.getElementById("createProposalInputTitle").value,
+                                                                     document.getElementById("createProposalInputDescription").value,
+                                                                     ethers.utils.parseEther(document.getElementById("createProposalInputEthAmount").value),
+                                                                     document.getElementById("createProposalInputReceiver").value)
 }

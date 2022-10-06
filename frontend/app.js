@@ -1,7 +1,7 @@
 let provider = new ethers.providers.Web3Provider(window.ethereum)
 let signer
 
-const MultisigWalletAddress = "0x586f504738f9f571130884328df9dce47af8b0a6"
+const MultisigWalletAddress = "0x7121E4F8673fA1f05BAf9c81eC2b47Ec145D77b9"
 const MultisigABI = ["function deposit() public payable",
                      "function createProposal(string memory _title, string memory _description, uint256 _ethAmount, address payable _receiver) public",
                      "function voteOnProposal(uint256 _id, bool _voteValue) public",
@@ -19,8 +19,11 @@ const MultisigABI = ["function deposit() public payable",
 
 const interval = setInterval(function() {
     getEthBalance();
-    getAllApprovers();
 }, 0)
+
+window.onload = function() {
+    getAllApprovers();
+}
 
 
 async function connectMetamask() {
@@ -50,14 +53,6 @@ async function depositEth() {
     const txResponse = await contract.connect(signer).deposit({value: ethers.utils.parseEther(document.getElementById("depositEthInput").value)});
 }
 
-async function createProposal() {
-    const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
-    const txResponse = await contract.connect(signer).createProposal(document.getElementById("createProposalInputTitle").value,
-                                                                     document.getElementById("createProposalInputDescription").value,
-                                                                     document.getElementById("createProposalInputEthAmount").value,
-                                                                     document.getElementById("createProposalInputReceiver").value)
-}
-
 async function voteOnProposal(result) {
     const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
     const txResponse = await contract.connect(signer).voteOnProposal(document.getElementById("infoInput").value, result)
@@ -75,9 +70,10 @@ async function getEthBalance() {
 
 async function getAllApprovers() {
     const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
-    const txResponse = await contract.getAllApprovers();
+    let approvers = await contract.getAllApprovers();
+    approvers = await approvers.toString().replace(/,/g, "<br>")
 
-    document.getElementById("allApproversText").innerHTML = txResponse
+    document.getElementById("allApproversText").innerHTML = approvers
 }
 
 async function getInfo() {
@@ -108,7 +104,8 @@ async function getProposalDescription() {
 
 async function getProposalEthAmount() {
     const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
-    document.getElementById("proposalEthAmount").innerHTML = "Eth Amount: " + await contract.getProposalEthAmount(document.getElementById("infoInput").value)
+    const bigNum = ethers.BigNumber.from(await contract.getProposalEthAmount(document.getElementById("infoInput").value))
+    document.getElementById("proposalEthAmount").innerHTML = "Eth Amount: " + await ethers.utils.formatEther(bigNum) + " ETH";
 }
 
 async function getProposalReciever() {
