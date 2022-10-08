@@ -11,8 +11,7 @@
     <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
 
-    <script src="viewAllProposal.js"></script>
-    <script type="module" src="app.js"></script>
+    <script type="module" src="viewAllProposal.js"></script>
 </head>
 <body>
     <nav>
@@ -23,13 +22,14 @@
             <li><a href="createProposal.html">Create Proposal</a></li>
             <li><a href="voteOnProposal.html">Vote On Proposal</a></li>
             <li><a href="viewAllProposals.html">View All Proposals</a></li>
-            <button onclick="connectMetamask()" id="connectWalletButton">Connect Wallet</button>
+            <li><a href="admin.html">Admin</a></li>
+            <button id="connectWalletButton">Connect Wallet</button>
         </ul>
     </nav>
     <h1>View All Proposals</h1>
 
     <div>
-        <button onclick="displayProposals()">Refresh</button>
+        <button id="displayProposalsButton">Refresh</button>
         <p id="proposals"></p>
         
     </div>

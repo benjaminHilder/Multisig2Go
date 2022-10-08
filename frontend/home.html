@@ -22,7 +22,8 @@
             <li><a href="createProposal.html">Create Proposal</a></li>
             <li><a href="voteOnProposal.html">Vote On Proposal</a></li>
             <li><a href="viewAllProposals.html">View All Proposals</a></li>
-            <button onclick="connectMetamask()" id="connectWalletButton">Connect Wallet</button>
+            <li><a href="admin.html">Admin</a></li>
+            <button id="connectWalletButton">Connect Wallet</button>
         </ul>
     </nav>
     <h1>Multisig Wallet</h1>
@@ -31,7 +32,7 @@
         <h2>Deposit Eth</h2>
         <input type="number" id="depositEthInput"> 
         <br><br>
-        <button id="depositEthButton" onclick="depositEth()">Deposit</button>
+        <button id="depositEthButton">Deposit</button>
     </div>
 
     <div>
@@ -52,7 +53,7 @@
         <h2>ID:</h2>
         <input type="number" id="infoInput">
         <br><br>
-        <button onclick="getInfo()">get info</button>
+        <button id="getProposalInfoButton">get info</button>
 
         <p id="proposalTitle"></p>
         <p id="proposalDescription"></p>

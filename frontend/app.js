@@ -6,9 +6,11 @@ const interval = setInterval(function() {
 
 window.onload = function() {
     getAllApprovers();
+    document.getElementById("depositEthButton").addEventListener("click", depositEth, false);
+    document.getElementById("connectWalletButton").addEventListener("click", connectMetamask, false);
+    document.getElementById("getProposalInfoButton").addEventListener("click", getInfo, false);
 }
 
-connectMetamask();
 
 async function depositEth() {
     const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);

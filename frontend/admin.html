@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vote On Proposal</title>
+    <title>Create Proposal</title>
 
     <link rel="stylesheet" href="style.css">
     
     <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
 
-    <script type="module" src="voteOnProposal.js"></script>
+    <script type="module" src="admin.js"></script>
 
 </head>
 <body>
     <nav>
-
         <label class="logo">Multisig</label>
         <ul>
             <li><a href="home.html">Home</a></li>
@@ -27,21 +26,17 @@
             <button id="connectWalletButton">Connect Wallet</button>
         </ul>
     </nav>
-    <h1>Vote On Proposal</h1>
+    <h1>Admin</h1>
 
     <div>
-        <h2>Deposit Eth</h2>
-        <h3>Proposal ID:</h3>
-        <input type="number" id="infoInput"> 
+        <h2>Add Approver</h2>
+        <input id="addApproverInput">
         <br><br>
-        <button id="voteOnProposalTrue">True</button>
-        <button id="voteOnProposalFalse">False</button>
+        <button id="addApproverButton">Add</button>
+        <h2>Remove Approver</h2>
+        <input id="removeApproverInput">
         <br><br>
-        <button id="claimProposalButton">Claim Proposal</button>
-        <h2>Get Proposal Info</h2>
-        <button id="getTitleAndDescriptionButton">Get Info</button>
-        <p id="proposalTitle"></p>
-        <p id="proposalDescription"></p>
+        <button id="removeApproverButton">Remove</button>
     </div>
 
         
