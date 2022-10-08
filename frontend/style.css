@@ -1,5 +1,10 @@
 *{
     font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
 }
 ul.nav {
     list-style-type: none;  
@@ -9,16 +14,70 @@ ul.nav {
 ul.nav > li {
     display: inline-block;
     padding: 10px 20px;
+}
 
+ul.nav > button {
+    display: inline-block;
+    padding: 10px 20px;
 }
 
 button.mint {
     font-size: 20px;
-    
 }
 
 body {
     background-color: lightblue;
     text-align: center;
   }
-Footer
+
+nav {
+    background: #0082e6;
+    height: 80px;
+    width: 100%;
+
+}
+
+label.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul button{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5 px;
+    font-size: 17px;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+}
+
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+
+a.active,a:hover{
+    background: #1b9bff;
+    transition: .5s;
+}

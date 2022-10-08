@@ -11,13 +11,21 @@
     <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
 
-    <script src="app.js"></script>
+    <script type="module" src="voteOnProposal.js"></script>
 
 </head>
 <body>
-    <button onclick="connectMetamask()" id="connectWalletButton">Connect Wallet</button>
-    <h3 id="connectedText"></h3>
-    <p id="chainStatus"></p>
+    <nav>
+
+        <label class="logo">Multisig</label>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="createProposal.html">Create Proposal</a></li>
+            <li><a href="voteOnProposal.html">Vote On Proposal</a></li>
+            <li><a href="viewAllProposals.html">View All Proposals</a></li>
+            <button onclick="connectMetamask()" id="connectWalletButton">Connect Wallet</button>
+        </ul>
+    </nav>
     <h1>Vote On Proposal</h1>
 
     <div>

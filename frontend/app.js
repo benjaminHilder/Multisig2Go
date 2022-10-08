@@ -1,21 +1,4 @@
-let provider = new ethers.providers.Web3Provider(window.ethereum)
-let signer
-
-const MultisigWalletAddress = "0x7121E4F8673fA1f05BAf9c81eC2b47Ec145D77b9"
-const MultisigABI = ["function deposit() public payable",
-                     "function createProposal(string memory _title, string memory _description, uint256 _ethAmount, address payable _receiver) public",
-                     "function voteOnProposal(uint256 _id, bool _voteValue) public",
-                     "function claimProposal(uint _id) public",
-                     "function getAllApprovers() public view returns(address[] memory)",
-                     "function getProposalTitle(uint256 _id) public view returns(string memory)",
-                     "function getProposalDescription(uint256 _id) public view returns(string memory)",
-                     "function getProposalEthAmount(uint256 _id) public view returns(uint256)",
-                     "function getProposalReciever(uint256 _id) public view returns(address payable)",
-                     "function getProposalApprovals(uint256 _id) public view returns(uint256)",
-                     "function getProposalDisapprovals(uint256 _id) public view returns(uint256)",
-                     "function getProposalIsActive(uint256 _id) public view returns(bool)",
-                     "function getProposalFinishedResult(uint256 _id) public view returns(bool)"
-                    ]
+import {provider, signer, MultisigWalletAddress, MultisigABI, connectMetamask} from "./utils.js"
 
 const interval = setInterval(function() {
     getEthBalance();
@@ -25,54 +8,29 @@ window.onload = function() {
     getAllApprovers();
 }
 
-
-async function connectMetamask() {
-    await provider.send("eth_requestAccounts", []);
-
-    signer = await provider.getSigner();
-
-    const network = await provider.getNetwork();
-    let chainName = network.name;
-
-    var button = await document.getElementById("connectWalletButton");
-    button.remove();
-    
-    if (chainName === "goerli") {
-        document.getElementById("connectedText").innerHTML = "Goerli Chain Connected ✔️"
-    }
-    else {
-        document.getElementById("connectedText").innerHTML = "Incorrect Chain ❌ Please Connect To Goerli Chain"
-    }
-
-    console.log("Account address: ", await signer.getAddress())
-    console.log("chain name: " + chainName)
-}
+connectMetamask();
 
 async function depositEth() {
     const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
     const txResponse = await contract.connect(signer).deposit({value: ethers.utils.parseEther(document.getElementById("depositEthInput").value)});
 }
 
-async function voteOnProposal(result) {
-    const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
-    const txResponse = await contract.connect(signer).voteOnProposal(document.getElementById("infoInput").value, result)
-}
-
-async function claimProposal() {
-    const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
-    const txResponse = await contract.connect(signer).claimProposal(document.getElementById("infoInput").value)
-}
-
 async function getEthBalance() {
-    let bal = await provider.getBalance(MultisigWalletAddress);
-    document.getElementById("ethBalance").innerHTML = bal
+    let bal = ethers.utils.formatEther(await provider.getBalance(MultisigWalletAddress));
+    document.getElementById("ethBalance").innerHTML = bal + " ETH   "
 }
 
 async function getAllApprovers() {
     const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
     let approvers = await contract.getAllApprovers();
-    approvers = await approvers.toString().replace(/,/g, "<br>")
+    approvers = await approvers.toString().split(",")
 
+    for (let i = 0; i < approvers.length; i++) {
+        if (await contract.approverName(approvers[i]) != "") {
+            approvers[i] = await contract.approverName(approvers[0])
+        }
+    }
+    
     document.getElementById("allApproversText").innerHTML = approvers
 }
 
@@ -84,6 +42,7 @@ async function getInfo() {
     getProposalApprovals();
     getProposalDisapprovals();
     getProposalIsActive();
+    getProposalIsClaimed();
     getProposalFinishedResult();
 }
 
@@ -126,6 +85,11 @@ async function getProposalDisapprovals() {
 async function getProposalIsActive() {
     const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
     document.getElementById("proposalIsActive").innerHTML = "Is Proposal Active? " + await contract.getProposalIsActive(document.getElementById("infoInput").value)
+}
+
+async function getProposalIsClaimed() {
+    const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
+    document.getElementById("proposalIsClaimed").innerHTML = "Has proposal been claimed? " + await contract.getProposalIsClaimed(document.getElementById("infoInput").value)
 }
 
 async function getProposalFinishedResult() {
