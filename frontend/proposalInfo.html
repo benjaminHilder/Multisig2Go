@@ -11,12 +11,12 @@
     <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
 
-    <script type="module" src="app.js"></script>
+    <script type="module" src="proposalInfo.js"></script>
 
 </head>
 <body>
     <nav>
-        <label class="logo">Multisig</label>
+        <label class="logo">Proposal Info</label>
         <ul>
             <li><a href="home.html">Home</a></li>
             <li><a href="createProposal.html">Create Proposal</a></li>
@@ -29,40 +29,34 @@
     <h1>Multisig Wallet</h1>
 
     <div>
-        <h2>Deposit Eth</h2>
-        <input type="number" id="depositEthInput"> 
+        <h1>Proposal Information</h1>
         <br><br>
-        <button id="depositEthButton">Deposit</button>
-    </div>
 
-    <div>
-        <h2>Multisig Eth Balance:</h2>
-        <p id="ethBalance"></p>
-    </div>
-
-    <div>    
-        <h2>Approvers:</h2>
-        <p id="allApproversText"></p>
-    </div>
-
-    <p id="chain"></p>
-    <p id="deployStatus"></p>
-
-    <div>
-        <h1>Get Proposal Information</h1>
-        <h2>ID:</h2>
-        <input type="number" id="infoInput">
-        <br><br>
-        <button id="getProposalInfoButton">get info</button>
-
+        <h3>Title</h3>
         <p id="proposalTitle"></p>
+
+        <h3>Description</h3>
         <p id="proposalDescription"></p>
+        
+        <h3>ETH Amount</h3>
         <p id="proposalEthAmount"></p>
+        
+        <h3>Reciever</h3>
         <p id="proposalReciever"></p>
+        
+        <h3>Total Approvals</h3>
         <p id="proposalApprovals"></p>
+        
+        <h3>Total Disapprovals</h3>
         <p id="proposalDisapprovals"></p>
+        
+        <h3>Proposal Active</h3>
         <p id="proposalIsActive"></p>
+        
+        <h3>Proposal Been Claimed</h3>
         <p id="proposalIsClaimed"></p>
+        
+        <h3>Finished Result</h3>
         <p id="proposalFinishedResult"></p>
 
     </div>
