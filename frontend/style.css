@@ -3,9 +3,61 @@
     padding: 0;
     margin: 0;
     text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
 }
+
+div.proposalBox {
+    width: 100%;
+
+    display: flex;
+    flex-flow: column wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+div.standardMenu {
+    background-color: rbga(255, 255, 255, 0.1);
+
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50% , -50% );
+
+    width: 24%;
+    min-height: 400px;
+    min-width: 300px;
+    border-style: solid;    
+    border-color: black;
+    border-radius: 25px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.proposalParaDiv {
+    background-color: rbga(255, 255, 255, 0.1);
+
+    width: 24%;
+    min-height: 250px;
+    min-width: 300px;
+    border-style: solid;    
+    border-color: black;
+    border-radius: 25px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.proposalInformation {
+    min-height: 450px;
+}
+
+
 ul.nav {
     list-style-type: none;  
     background-color: white;  
@@ -26,7 +78,7 @@ button.mint {
 }
 
 body {
-    background-color: lightblue;
+    background-color: yellowgreen;
     text-align: center;
   }
 
@@ -80,4 +132,8 @@ nav ul li a{
 a.active,a:hover{
     background: #1b9bff;
     transition: .5s;
+}
+
+html {
+    scroll-behavior: smooth;
 }

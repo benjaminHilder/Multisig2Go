@@ -11,26 +11,41 @@ window.onload = function() {
 async function displayProposals() {
     const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
     const maxProposals = await contract.proposalIterator()
-    let proposalArray = [];
+
+    let proposalDiv = document.createElement("div");
+    proposalDiv.className = "proposalBox"
+
 
     for(let i = 0; i < maxProposals; i++) {
-        let proposalBlock = document.createElement('p')
-        proposalBlock.id = "proposalBlock"
-        proposalBlock.innerHTML = i+1 +")<br>" + 
+        let proposalParaDiv = document.createElement('div')
+        proposalParaDiv.className = "proposalParaDiv"
+
+        let proposalParaDivInner = document.createElement('div')
+        proposalParaDivInner.className = "proposalParaDivInner"
+
+        let proposalPara = document.createElement('p')
+        
+        proposalPara.id = "proposalBlock"
+        proposalPara.innerHTML = i+1 +")<br>" + 
                                     "Title: " +  await contract.getProposalTitle(i) + 
                                     "<br>" + 
                                     "Description: " + await contract.getProposalDescription(i) + 
                                     "<br> <br>"
         
         let btn = document.createElement('button');
+        btn.addEventListener("click", function(){viewAllProposalInfo(i)} , false);
         btn.textContent = "View More"
 
-        document.body.appendChild(proposalBlock);
+        proposalParaDivInner.appendChild(proposalPara);
+        proposalParaDivInner.appendChild(btn);
+        proposalParaDiv.appendChild(proposalParaDivInner);
+        proposalDiv.appendChild(proposalParaDiv);
 
-        btn.addEventListener("click", function(){viewAllProposalInfo(i)} , false);
-        document.body.appendChild(btn);
-        proposalArray.push(proposalBlock)
     }
+
+    
+
+    document.body.appendChild(proposalDiv)
 }
 
 async function viewAllProposalInfo(id) {
