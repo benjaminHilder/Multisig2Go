@@ -1,8 +1,8 @@
 import {provider, signer, MultisigWalletAddress, MultisigABI, connectMetamask} from "./utils.js"
 
-connectMetamask();
-
 window.onload = function() {
+    connectMetamask();
+    
     document.getElementById("connectWalletButton").addEventListener("click", connectMetamask, false)
     document.getElementById("addApproverButton").addEventListener("click", addApprover, false)
     document.getElementById("removeApproverButton").addEventListener("click", removeApprover, false)

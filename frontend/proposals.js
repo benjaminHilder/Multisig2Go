@@ -2,9 +2,8 @@ import {provider, signer, MultisigWalletAddress, MultisigABI, connectMetamask} f
 
 export let selectedProposalID;
 
-connectMetamask();
-
 window.onload = function() {
+    connectMetamask();
     displayProposals();
 }
 

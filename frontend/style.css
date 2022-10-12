@@ -1,8 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+/*remove input box arrows*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 *{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     padding: 0;
     margin: 0;
     text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #34495e;
+    text-align: center;
+}
+
+nav {
+    background: #0082e6;
+    height: 80px;
+    width: 100%;
+}
+
+.form-group {
+    
+}
+
+.form-group input{
+    width: 100%;
+    height: 2.2em;
+    background: transparent;
+    border: 2px solid #2ecc71;
+    border-radius: 10px;
+    outline:none;
+    padding: 0 10px;
+    font-size: 15px;
+}
+
+.form-group label {
+    position: relative;
+    top: -27px;
+    left: -85px;
+    color: white;
+    text-transform: capitalize;
+    transition: top .3s;
+    padding: 0 5px;
+    pointer-events: none
+}
+
+.form-group input:focus ~ label {
+    top:-42px;
+    background-color: #34495e;
 }
 
 div.proposalBox {
@@ -75,18 +131,6 @@ ul.nav > button {
 
 button.mint {
     font-size: 20px;
-}
-
-body {
-    background-color: yellowgreen;
-    text-align: center;
-  }
-
-nav {
-    background: #0082e6;
-    height: 80px;
-    width: 100%;
-
 }
 
 label.logo{

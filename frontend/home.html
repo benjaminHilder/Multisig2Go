@@ -7,7 +7,7 @@
     <title>Multisig</title>
 
     <link rel="stylesheet" href="style.css">
-    
+
     <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
 
@@ -23,22 +23,22 @@
             <li><a href="voteOnProposal.html">Vote On Proposal</a></li>
             <li><a href="proposals.html">Proposals</a></li>
             <li><a href="admin.html">Admin</a></li>
+            <li><a href="userInfo.html">User Info</a></li>
             <button id="connectWalletButton">Connect Wallet</button>
         </ul>
     </nav>
     <div class="standardMenu home">
-
         <div class="innerMenu">
-            <div class="menuTitle">
-                <h1>Multisig Wallet</h1>
+
+            <div class="form-group">
+                <form action="" method="POST" class="form">
+                    <input type="number" class="standardMenuInput" id="depositEthInput"> 
+                    <label for="depositEth" class="standardMenuLabel">Deposit Eth</label>
+                    <br>
+                    <button id="depositEthButton">Deposit</button>
+                </form>
             </div>
             
-            <h2>Deposit Eth</h2>
-            <input type="number" id="depositEthInput"> 
-            
-            <br><br>
-            
-            <button id="depositEthButton">Deposit</button>
             <h2>Multisig Eth Balance:</h2>
             <p id="ethBalance"></p>
             

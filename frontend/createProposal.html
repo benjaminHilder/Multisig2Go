@@ -24,6 +24,7 @@
             <li><a href="voteOnProposal.html">Vote On Proposal</a></li>
             <li><a href="Proposals.html">Proposals</a></li>
             <li><a href="admin.html">Admin</a></li>
+            <li><a href="userInfo.html">User Info</a></li>
             <button id="connectWalletButton">Connect Wallet</button>
         </ul>
     </nav>
@@ -31,21 +32,28 @@
     <div class="standardMenu createProposal">
         <div class="innerMenu">
             <h1>Create Proposal</h1>
-            
-            <h2>Deposit Eth</h2>
-            <h3>Title:</h3>
-            <input id="createProposalInputTitle"> 
-            
-            <h3>Description:</h3>
-            <input id="createProposalInputDescription"> 
-            
-            <h3>Eth Amount:</h3>
-            <input type="number" id="createProposalInputEthAmount"> 
-            
-            <h3>Receiver Address:</h3>
-            <input id="createProposalInputReceiver"> 
-            <br><br>
-            <button id="createProposalButtonSubmit">Create Proposal</button>
+            <div class="form-group">
+                <form action="" method="POST" class="form">
+                    <input class="standardMenuInput" id="createProposalInputTitle">
+                    <label class="standardMenuLabel">Title</label>
+                </form>
+                <form action="" method="POST" class="form">
+                    <input class="standardMenuInput" id="createProposalInputDescription">
+                    <label class="standardMenuLabel">Description</label>
+                </form>
+                <form action="" method="POST" class="form">
+                    <input type="number" id="createProposalInputEthAmount"> 
+                    <label class="standardMenuLabel">Eth Amount</label> 
+                </form>
+                <form action="" method="POST" class="form">
+                    <input class="standardMenuInput" id="createProposalInputReceiver">
+                    <label class="standardMenuLabel">Receiver Address</label> 
+
+                </form>
+                
+                <button id="createProposalButtonSubmit">Create Proposal</button>
+
+            </div>
         </div>
     </div>
 
