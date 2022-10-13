@@ -30,22 +30,26 @@
     </nav>
 
     <div class="standardMenu voteOnProposal">
-        <dis class="innerMeny">
-    <h1>Vote On Proposal</h1>
-        <div class="form-group">
+        <div class ="innerMenu">
+            <div class="standardMenuTitle">
+                <h1>Vote On Proposal</h1>
+            </div>
+
+            <div class="form-group">
+                <form action="" method="POST" class="form">
+                    <input type="number" class="standardMenuInput" id="infoInput">
+                    <label class="standardMenuLabel">Proposal ID</label>
+                </form>
+            </div>
+        
             <form action="" method="POST" class="form">
-                <input type="number" class="standardMenuInput" id="infoInput">
-                <label class="standardMenuLabel">Proposal ID</label>
+                <button id="voteOnProposalTrue">True</button>
+                <button id="voteOnProposalFalse">False</button>
+                <br><br>
+                <button id="claimProposalButton">Claim Proposal</button>
             </form>
         </div>
-        <button id="voteOnProposalTrue">True</button>
-        <button id="voteOnProposalFalse">False</button>
-        <br><br>
-        <button id="claimProposalButton">Claim Proposal</button>
-        </div>
     </div>
-
-        
- 
+</div>
 </body>
 </html>

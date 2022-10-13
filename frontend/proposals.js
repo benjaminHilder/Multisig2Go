@@ -29,22 +29,23 @@ async function displayProposals() {
                                     "Title: " +  await contract.getProposalTitle(i) + 
                                     "<br>" + 
                                     "Description: " + await contract.getProposalDescription(i) + 
-                                    "<br> <br>"
+                                    "<br> <br>" 
         
         let btn = document.createElement('button');
+        btn.id = "proposalViewMoreButton";
+        
         btn.addEventListener("click", function(){viewAllProposalInfo(i)} , false);
+        proposalPara.appendChild(btn);
         btn.textContent = "View More"
+        
 
         proposalParaDivInner.appendChild(proposalPara);
-        proposalParaDivInner.appendChild(btn);
+
         proposalParaDiv.appendChild(proposalParaDivInner);
         proposalDiv.appendChild(proposalParaDiv);
 
     }
-
-    
-
-    document.body.appendChild(proposalDiv)
+    document.getElementById("proposalInnerMenu").appendChild(proposalDiv)
 }
 
 async function viewAllProposalInfo(id) {

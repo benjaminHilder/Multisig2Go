@@ -17,21 +17,66 @@ input[type=number] {
     margin: 0;
     text-decoration: none;
     box-sizing: border-box;
+    color:white;
+    background-color: #34495e;
 }
 
-body {
-    background-color: #34495e;
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.nav__links {
+    list-style: none;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+    color: #0088a9;
+}
+
+button {
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor:pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: rgba(0,136,169,0.8)
+}
+
+.innerMenu {
     text-align: center;
 }
 
-nav {
-    background: #0082e6;
-    height: 80px;
-    width: 100%;
-}
+.standardMenuTitle{
+    position:absolute;
+    top: 19px;
 
-.form-group {
-    
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+
+    max-width: 90%;
 }
 
 .form-group input{
@@ -43,22 +88,54 @@ nav {
     outline:none;
     padding: 0 10px;
     font-size: 15px;
+    transition: 0.3s;
 }
 
 .form-group label {
     position: relative;
     top: -27px;
-    left: -85px;
+    left: 0px;
     color: white;
     text-transform: capitalize;
     transition: top .3s;
-    padding: 0 5px;
+    padding: 0 0px;
     pointer-events: none
 }
 
+.form-group input:hover{
+    border-color:#2980b9;
+    cursor:pointer;
+}
+
 .form-group input:focus ~ label {
-    top:-42px;
+    top:-43px;
     background-color: #34495e;
+
+}
+
+.form button {
+    background: transparent;
+    border: 2px solid #2ecc71;
+    border-radius: 10px;
+    outline:none;
+    padding: 0 10px;
+    font-size: 15px;
+    color: white;
+    transition: 0.3s;
+}
+.form button:hover{
+    border-color:#2980b9;
+    cursor:pointer;
+}
+
+#proposalViewMoreButton {
+    background: transparent;
+    border: 2px solid #2ecc71;
+    border-radius: 10px;
+    outline:none;
+    padding: 0 10px;
+    font-size: 15px;
+    color: white;
 }
 
 div.proposalBox {
@@ -92,6 +169,16 @@ div.standardMenu {
     justify-content: center;
 }
 
+div.proposalMenu {
+    background-color: rbga(255, 255, 255, 0.1);
+    position: absolute;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 div.proposalParaDiv {
     background-color: rbga(255, 255, 255, 0.1);
 
@@ -113,65 +200,9 @@ div.proposalInformation {
     min-height: 450px;
 }
 
-
-ul.nav {
-    list-style-type: none;  
-    background-color: white;  
-}
-
-ul.nav > li {
-    display: inline-block;
-    padding: 10px 20px;
-}
-
-ul.nav > button {
-    display: inline-block;
-    padding: 10px 20px;
-}
-
 button.mint {
     font-size: 20px;
 }
-
-label.logo{
-    color: white;
-    font-size: 35px;
-    line-height: 80px;
-    padding: 0 100px;
-    font-weight: bold;
-}
-
-nav ul{
-    float: right;
-    margin-right: 20px;
-}
-
-nav ul li{
-    display: inline-block;
-    line-height: 80px;
-    margin: 0 5px;
-}
-
-nav ul button{
-    display: inline-block;
-    line-height: 80px;
-    margin: 0 5 px;
-    font-size: 17px;
-    outline: none;
-    background-color: transparent;
-    color: white;
-    text-transform: uppercase;
-    border: none;
-}
-
-nav ul li a{
-    color: white;
-    font-size: 17px;
-    padding: 7px 13px;
-    border-radius: 3px;
-    text-transform: uppercase;
-}
-
 
 a.active,a:hover{
     background: #1b9bff;
