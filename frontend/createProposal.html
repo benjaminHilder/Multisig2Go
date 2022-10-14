@@ -15,19 +15,21 @@
 
 </head>
 <body>
-    <nav>
-
-        <label class="logo">Multisig</label>
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="createProposal.html">Create Proposal</a></li>
-            <li><a href="voteOnProposal.html">Vote On Proposal</a></li>
-            <li><a href="Proposals.html">Proposals</a></li>
-            <li><a href="admin.html">Admin</a></li>
-            <li><a href="userInfo.html">User Info</a></li>
-            <button id="connectWalletButton">Connect Wallet</button>
+    <header>
+        <img class="logo" src="images/logo.png" alt="logo">
+    <nav>       
+        <ul class="nav__links">
+            <li class="list-item"><a href="home.html">Home</a></li>
+            <li class="list-item"><a href="createProposal.html">Create Proposal</a></li>
+            <li class="list-item"><a href="voteOnProposal.html">Vote On Proposal</a></li>
+            <li class="list-item"><a href="Proposals.html">Proposals</a></li>
+            <li class="list-item"><a href="admin.html">Admin</a></li>
+            <li class="list-item"><a href="userInfo.html">User Info</a></li>
         </ul>
+        
     </nav>
+    <button id="connectWalletButton">Connect Wallet</button>
+    </header>
 
     <div class="standardMenu createProposal">
         <div class="innerMenu">
@@ -52,9 +54,8 @@
                     <input class="standardMenuInput" id="createProposalInputReceiver">
                     <label class="standardMenuLabel">Receiver Address</label> 
                 </form>
-                <form action="" method="POST" class="form">
-                    <button id="createProposalButtonSubmit">Create Proposal</button>
-                </form>
+                
+                <button id="createProposalButtonSubmit">Create Proposal</button>
             </div>
         </div>
     </div>

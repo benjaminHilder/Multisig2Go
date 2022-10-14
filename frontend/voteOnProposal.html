@@ -14,20 +14,21 @@
     <script type="module" src="voteOnProposal.js"></script>
 
 </head>
-<body>
-    <nav>
-
-        <label class="logo">Multisig</label>
+    <body>
+        <header>
+            <img class="logo" src="images/logo.png" alt="logo">
+        <nav class="nav__links">
         <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="createProposal.html">Create Proposal</a></li>
-            <li><a href="voteOnProposal.html">Vote On Proposal</a></li>
-            <li><a href="Proposals.html">Proposals</a></li>
-            <li><a href="admin.html">Admin</a></li>
-            <li><a href="userInfo.html">User Info</a></li>
-            <button id="connectWalletButton">Connect Wallet</button>
+            <li class="list-item"><a href="home.html">Home</a></li>
+            <li class="list-item"><a href="createProposal.html">Create Proposal</a></li>
+            <li class="list-item"><a href="voteOnProposal.html">Vote On Proposal</a></li>
+            <li class="list-item"><a href="Proposals.html">Proposals</a></li>
+            <li class="list-item"><a href="admin.html">Admin</a></li>
+            <li class="list-item"><a href="userInfo.html">User Info</a></li>
         </ul>
-    </nav>
+        </nav>
+        <button id="connectWalletButton">Connect Wallet</button>
+    </header>
 
     <div class="standardMenu voteOnProposal">
         <div class ="innerMenu">
@@ -42,12 +43,11 @@
                 </form>
             </div>
         
-            <form action="" method="POST" class="form">
-                <button id="voteOnProposalTrue">True</button>
-                <button id="voteOnProposalFalse">False</button>
-                <br><br>
-                <button id="claimProposalButton">Claim Proposal</button>
-            </form>
+            <button id="voteOnProposalTrue">True</button>
+            <button id="voteOnProposalFalse">False</button>
+            <br><br>
+            <button id="claimProposalButton">Claim Proposal</button>
+
         </div>
     </div>
 </div>

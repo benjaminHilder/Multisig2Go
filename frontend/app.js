@@ -6,6 +6,8 @@ const interval = setInterval(function() {
 
 window.onload = function() {
     getAllApprovers();
+    connectMetamask();
+    
     document.getElementById("depositEthButton").addEventListener("click", depositEth, false);
     document.getElementById("connectWalletButton").addEventListener("click", connectMetamask, false);
 

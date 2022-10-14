@@ -3,8 +3,9 @@ import {provider, signer, MultisigWalletAddress, MultisigABI, connectMetamask} f
 window.onload = function() {
     connectMetamask();
 
-    document.getElementById("connectWalletButton").addEventListener("click", connectMetamask, false);
     document.getElementById("createProposalButtonSubmit").addEventListener("click", createProposal, false);
+    document.getElementById("connectWalletButton").addEventListener("click", connectMetamask, false);
+   
 }
 
 async function createProposal() {

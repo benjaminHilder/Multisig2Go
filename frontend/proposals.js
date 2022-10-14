@@ -14,7 +14,6 @@ async function displayProposals() {
     let proposalDiv = document.createElement("div");
     proposalDiv.className = "proposalBox"
 
-
     for(let i = 0; i < maxProposals; i++) {
         let proposalParaDiv = document.createElement('div')
         proposalParaDiv.className = "proposalParaDiv"
@@ -35,17 +34,19 @@ async function displayProposals() {
         btn.id = "proposalViewMoreButton";
         
         btn.addEventListener("click", function(){viewAllProposalInfo(i)} , false);
-        proposalPara.appendChild(btn);
+        ;
         btn.textContent = "View More"
         
 
         proposalParaDivInner.appendChild(proposalPara);
 
         proposalParaDiv.appendChild(proposalParaDivInner);
+        proposalParaDiv.appendChild(btn)
         proposalDiv.appendChild(proposalParaDiv);
 
     }
-    document.getElementById("proposalInnerMenu").appendChild(proposalDiv)
+    document.getElementById("proposalBlocks").appendChild(proposalDiv)
+    //document.body.appendChild(proposalDiv);
 }
 
 async function viewAllProposalInfo(id) {

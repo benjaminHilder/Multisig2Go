@@ -46,8 +46,9 @@ header {
     transition: all 0.3s ease 0s;
 }
 
-.nav__links li a:hover {
-    color: #0088a9;
+#displayProposalsButton {
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 button {
@@ -61,6 +62,31 @@ button {
 
 button:hover {
     background-color: rgba(0,136,169,0.8)
+}
+
+
+
+.list-item::after {
+    content: '';
+    height: 2px;
+    width: 0%;
+    background-color: white;
+    display: block;
+    transition: 0.4s ease;
+
+}
+
+.list-item:hover::after {
+    content: '';
+    height: 2px;
+    width: 100%;
+    background-color: white;
+    display: block;
+    transition: 0.4s ease;
+}
+
+.list-link:hover {
+
 }
 
 .innerMenu {
@@ -144,7 +170,24 @@ div.proposalBox {
     display: flex;
     flex-flow: column wrap;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-evenly;  
+}
+
+.proposalParaDiv {
+    margin-bottom:12px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    padding: 20px 20px;
+    
+}
+
+#proposalBlock {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 div.standardMenu {
@@ -169,11 +212,17 @@ div.standardMenu {
     justify-content: center;
 }
 
-div.proposalMenu {
+div.proposalInnerMenu {
     background-color: rbga(255, 255, 255, 0.1);
     position: absolute;
     width: 100%;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.proposalTitle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -190,6 +239,7 @@ div.proposalParaDiv {
     border-radius: 25px;
     border:1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding-bottom: 20px;
 
     display: flex;
     align-items: center;
@@ -205,8 +255,7 @@ button.mint {
 }
 
 a.active,a:hover{
-    background: #1b9bff;
-    transition: .5s;
+    
 }
 
 html {
