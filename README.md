@@ -9,4 +9,4 @@ How to run
 6) In your web browser selected frontend
 7) select home.html
 
-![alt text](https://imgur.com/a/9m4Y6s0)
+<img src="https://imgur.com/a/9m4Y6s0">
