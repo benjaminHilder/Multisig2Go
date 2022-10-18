@@ -8,3 +8,5 @@ How to run
 5) Start a live server (bottom left corner in vscode)
 6) In your web browser selected frontend
 7) select home.html
+
+![alt text](https://imgur.com/a/9m4Y6s0)
