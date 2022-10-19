@@ -1,4 +1,4 @@
-# multisig-wallet-dapp
+# Multisig2Go
 
 How to run
 1) Pull this repo / download code
