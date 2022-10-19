@@ -8,6 +8,12 @@ async function main() {
     await MultisigWalletDeploy.deployed();
 
     console.log("Multisig Wallet Address: " + MultisigWalletDeploy.address);
+
+    const CreateMultisig = await hre.ethers.getContractFactory("CreateMultisigWallet");
+    const CreateMultisigDeploy = await CreateMultisigWallet.deploy();
+    await CreateMultisigDeploy.deployed();
+
+    console.log("Create Multisig Wallet address: " + CreateMultisigDeploy.address);
 }
 
 main()

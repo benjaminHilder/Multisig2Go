@@ -32,6 +32,7 @@ async function displayProposals() {
         
         let btn = document.createElement('button');
         btn.id = "proposalViewMoreButton";
+        btn.className = "standardButton";
         
         btn.addEventListener("click", function(){viewAllProposalInfo(i)} , false);
         ;

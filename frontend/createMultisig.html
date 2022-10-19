@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multisig</title>
+    <title>Create Multisig</title>
 
     <link rel="stylesheet" href="style.css">
 
     <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
 
-    <script type="module" src="app.js"></script>
+    <script type="module" src="createMultisig.js"></script>
 
 </head>
 <body>
@@ -31,37 +31,38 @@
     </nav>
 
     <button class="standardButton" id="connectWalletButton">Connect Wallet</button>
-    
     </header>
 
-    <div class="standardMenu home">
+    <div class="standardMenu createMultisig">
         <div class="innerMenu">
-            
             <div class="standardMenuTitle">
                 <div>
-                    <h1>Multisig</h1>
+                    <h1>Create Multisig</h1>
                 </div>
             </div>
 
-
             <div class="form-group">
-                <form action="" method="POST" class="form">
-                    <input type="number" class="standardMenuInput" id="depositEthInput" placeholder="&zwnj;">
-                    <label for="depositEth" class="standardMenuLabel">Deposit Eth</label>
-                    <br>
-                    <button class="standardButton" id="depositEthButton">Deposit</button>
-                </form>
+                <div id="newTask">
+                    <form action="" method="POST" class="form"> 
+                        <input class="standardMenuInput" id="createWalletAddresses" placeholder="&zwnj;">
+                        <label class="standardMenuLabel">Approver Addresses</label> 
+                        <br>
+                    </form>
+
+                    <button class="standardButton" id="addAddress">Add</button>
+
+                    <div id="walletAddresses">
+                    </div>
+
+                    <form action="" method="POST" class="form"> 
+                        <input type="number" class="standardMenuInput" id="createMultisigApproveAmount" placeholder="&zwnj;">
+                        <label class="standardMenuLabel">Percentage To Pass Proposals</label> 
+                    </form>
+                
+                
+                <button class="standardButton" id="createMultisigButton">Create Multisig Wallet</button>
             </div>
 
-            <br>
-            
-            <h2>Multisig Eth Balance:</h2>
-            <p id="ethBalance"></p>
-            
-            <div>    
-                <h2>Approvers:</h2>
-                <p id="allApproversText"></p>
-            </div>
         </div>
     </div>
 </body>

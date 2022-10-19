@@ -20,6 +20,8 @@
         <nav>
             <ul class="nav__links">
                 <li class="list-item"><a href="home.html">Home</a></li>
+                <li class="list-item"><a href="createMultisig.html">Create Multisig</a></li>
+                <li class="list-item"><a href="selectMultisig.html">Select Multisig</a></li>
                 <li class="list-item"><a href="createProposal.html">Create Proposal</a></li>
                 <li class="list-item"><a href="voteOnProposal.html">Vote On Proposal</a></li>
                 <li class="list-item"><a href="Proposals.html">Proposals</a></li>
@@ -29,7 +31,7 @@
             </ul>
         </nav>
 
-        <button id="connectWalletButton">Connect Wallet</button>
+        <button class="standardButton" id="connectWalletButton">Connect Wallet</button>
         </header>
 
 
@@ -43,23 +45,22 @@
             <div class="form-group">
             
                 <form action="" method="POST" class="form">
-                    <input class="standardMenuInput" id="addApproverInput">
+                    <input class="standardMenuInput" id="addApproverInput" placeholder="&zwnj;">
                     <label class="standardMenuLabel">Add Approver</label> 
                 </form>
                 
-                <button id="addApproverButton">Add</button>
-                
+                <button class="standardButton" id="addApproverButton">Add</button>
          
                 <form action="" method="POST" class="form">
                 </form>
                 <br>
 
                 <form action="" method="POST" class="form">
-                    <input class="standardMenuInput" id="removeApproverInput">
+                    <input class="standardMenuInput" id="removeApproverInput" placeholder="&zwnj;">
                     <label class="standardMenuLabel">Remove Approver</label>
                 </form>
 
-                <button id="removeApproverButton">Remove</button>
+                <button class="standardButton" id="removeApproverButton">Remove</button>
             </div>            
         </div>
     </div>

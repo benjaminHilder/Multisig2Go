@@ -20,6 +20,8 @@
         <nav class="nav__links">
         <ul>
             <li class="list-item"><a href="home.html">Home</a></li>
+            <li class="list-item"><a href="createMultisig.html">Create Multisig</a></li>
+            <li class="list-item"><a href="selectMultisig.html">Select Multisig</a></li>
             <li class="list-item"><a href="createProposal.html">Create Proposal</a></li>
             <li class="list-item"><a href="voteOnProposal.html">Vote On Proposal</a></li>
             <li class="list-item"><a href="Proposals.html">Proposals</a></li>
@@ -27,7 +29,7 @@
             <li class="list-item"><a href="userInfo.html">User Info</a></li>
         </ul>
         </nav>
-        <button id="connectWalletButton">Connect Wallet</button>
+        <button class="standardButton" id="connectWalletButton">Connect Wallet</button>
     </header>
 
     <div class="standardMenu voteOnProposal">
@@ -38,15 +40,15 @@
 
             <div class="form-group">
                 <form action="" method="POST" class="form">
-                    <input type="number" class="standardMenuInput" id="infoInput">
+                    <input type="number" class="standardMenuInput" id="infoInput" placeholder="&zwnj;">
                     <label class="standardMenuLabel">Proposal ID</label>
                 </form>
             </div>
-        
-            <button id="voteOnProposalTrue">True</button>
-            <button id="voteOnProposalFalse">False</button>
+            
+            <button class="standardButton" id="voteOnProposalTrue">True</button>
+            <button class="standardButton" id="voteOnProposalFalse">False</button>
             <br><br>
-            <button id="claimProposalButton">Claim Proposal</button>
+            <button class="standardButton" id="claimProposalButton">Claim Proposal</button>
 
         </div>
     </div>

@@ -20,6 +20,8 @@
     <nav>       
         <ul class="nav__links">
             <li class="list-item"><a href="home.html">Home</a></li>
+            <li class="list-item"><a href="createMultisig.html">Create Multisig</a></li>
+            <li class="list-item"><a href="selectMultisig.html">Select Multisig</a></li>
             <li class="list-item"><a href="createProposal.html">Create Proposal</a></li>
             <li class="list-item"><a href="voteOnProposal.html">Vote On Proposal</a></li>
             <li class="list-item"><a href="Proposals.html">Proposals</a></li>
@@ -28,7 +30,8 @@
         </ul>
         
     </nav>
-    <button id="connectWalletButton">Connect Wallet</button>
+
+    <button class="standardButton" id="connectWalletButton">Connect Wallet</button>
     </header>
 
     <div class="standardMenu createProposal">
@@ -39,23 +42,23 @@
 
             <div class="form-group">
                 <form action="" method="POST" class="form">
-                    <input class="standardMenuInput" id="createProposalInputTitle">
+                    <input class="standardMenuInput" id="createProposalInputTitle" placeholder="&zwnj;">
                     <label class="standardMenuLabel">Title</label>
                 </form>
                 <form action="" method="POST" class="form">
-                    <input class="standardMenuInput" id="createProposalInputDescription">
+                    <input class="standardMenuInput" id="createProposalInputDescription" placeholder="&zwnj;">
                     <label class="standardMenuLabel">Description</label>
                 </form>
                 <form action="" method="POST" class="form">
-                    <input class="standardMenuInput" type="number" id="createProposalInputEthAmount"> 
+                    <input class="standardMenuInput" type="number" id="createProposalInputEthAmount" placeholder="&zwnj;"> 
                     <label class="standardMenuLabel">Eth Amount</label> 
                 </form>
                 <form action="" method="POST" class="form">
-                    <input class="standardMenuInput" id="createProposalInputReceiver">
+                    <input class="standardMenuInput" id="createProposalInputReceiver" placeholder="&zwnj;">
                     <label class="standardMenuLabel">Receiver Address</label> 
                 </form>
                 
-                <button id="createProposalButtonSubmit">Create Proposal</button>
+                <button class="standardButton" id="createProposalButtonSubmit">Create Proposal</button>
             </div>
         </div>
     </div>

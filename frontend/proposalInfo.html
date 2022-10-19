@@ -20,6 +20,8 @@
     <nav> 
         <ul class="nav__links">
             <li class="list-item"><a href="home.html">Home</a></li>
+            <li class="list-item"><a href="createMultisig.html">Create Multisig</a></li>
+            <li class="list-item"><a href="selectMultisig.html">Select Multisig</a></li>
             <li class="list-item"><a href="createProposal.html">Create Proposal</a></li>
             <li class="list-item"><a href="voteOnProposal.html">Vote On Proposal</a></li>
             <li class="list-item"><a href="proposals.html">Proposals</a></li>
@@ -28,7 +30,7 @@
         </ul>
 
     </nav>
-    <button id="connectWalletButton">Connect Wallet</button>
+    <button class="standardButton" id="connectWalletButton">Connect Wallet</button>
     </header>
 
     <div class="standardMenu proposalInformation">
@@ -38,34 +40,35 @@
                 <h1>Proposal Information</h1>
             </div>
             
-            <br><br>
-            
-            <h3>Title</h3>
-            <p id="proposalTitle"></p>
-            
-            <h3>Description</h3>
-            <p id="proposalDescription"></p>
-            
-            <h3>ETH Amount</h3>
-            <p id="proposalEthAmount"></p>
-            
-            <h3>Reciever</h3>
-            <p id="proposalReciever"></p>
-            
-            <h3>Total Approvals</h3>
-            <p id="proposalApprovals"></p>
-            
-            <h3>Total Disapprovals</h3>
-            <p id="proposalDisapprovals"></p>
-            
-            <h3>Proposal Active</h3>
-            <p id="proposalIsActive"></p>
-            
-            <h3>Proposal Been Claimed</h3>
-            <p id="proposalIsClaimed"></p>
-            
-            <h3>Finished Result</h3>
-            <p id="proposalFinishedResult"></p>
+            <div class="proposalInfo">            
+                <h3 class="proposalInfoTitle">Title</h3>
+                <p class="proposalInfoResponse" id="proposalTitle"></p>
+                
+                <h3 class="proposalInfoTitle">Description</h3>
+                <p class="proposalInfoResponse" id="proposalDescription"></p>
+                
+                <h3 class="proposalInfoTitle">ETH Amount</h3>
+                <p class="proposalInfoResponse" id="proposalEthAmount"></p>
+                
+                <h3 class="proposalInfoTitle">Reciever</h3>
+                <p class="proposalInfoResponse" id="proposalReciever"></p>
+                
+                <h3 class="proposalInfoTitle">Total Approvals</h3>
+                <p class="proposalInfoResponse" id="proposalApprovals"></p>
+                
+                <h3 class="proposalInfoTitle">Total Disapprovals</h3>
+                <p class="proposalInfoResponse" id="proposalDisapprovals"></p>
+                
+                <h3 class="proposalInfoTitle">Proposal Active</h3>
+                <p class="proposalInfoResponse" id="proposalIsActive"></p>
+                
+                <h3 class="proposalInfoTitle">Proposal Been Claimed</h3>
+                <p class="proposalInfoResponse" id="proposalIsClaimed"></p>
+                
+                <h3 class="proposalInfoTitle">Finished Result</h3>
+                <p class="proposalInfoResponse" id="proposalFinishedResult"></p>
+            </div>
+
         </div>
     </div>
     
