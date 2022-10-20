@@ -27,17 +27,18 @@ contract MultisigWallet {
     mapping (uint256 => mapping(address => bool)) currentVote;
 
     uint public proposalIterator;
-    address contractDeployer;
+    address multisigCreator; 
 
-    constructor(address[] memory _approvers, uint256 _percentageToAgree) {
+    constructor(address[] memory _approvers, uint256 _percentageToAgree, address _multisigCreator) {
         for(uint256 i = 0; i < _approvers.length; i++) {
             isApprover[_approvers[i]] = true;
         }
+        
         approvers = _approvers;
 
         percentageToAgree = _percentageToAgree;
         proposalIterator = 0;
-        contractDeployer = msg.sender;
+        multisigCreator = _multisigCreator;
     }
 
     modifier onlyApprover() {

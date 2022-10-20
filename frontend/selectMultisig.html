@@ -4,56 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select Multisig</title>
+    <title>View All Proposals</title>
 
     <link rel="stylesheet" href="style.css">
-
+    
     <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
 
-    <script type="module" src="app.js"></script>
-
+    <script type="module" src="selectMultisig.js"></script>
 </head>
 <body>
     <header>
         <img class="logo" src="images/logo.png" alt="logo">
     <nav>
-        <ul class="nav__links"> 
+        <ul class="nav__links">
             <li class="list-item"><a href="home.html">Home</a></li>
             <li class="list-item"><a href="createMultisig.html">Create Multisig</a></li>
             <li class="list-item"><a href="selectMultisig.html">Select Multisig</a></li>
             <li class="list-item"><a href="createProposal.html">Create Proposal</a></li>
             <li class="list-item"><a href="voteOnProposal.html">Vote On Proposal</a></li>
-            <li class="list-item"><a href="proposals.html">Proposals</a></li>
+            <li class="list-item"><a href="Proposals.html">Proposals</a></li>
             <li class="list-item"><a href="admin.html">Admin</a></li>
             <li class="list-item"><a href="userInfo.html">User Info</a></li>
         </ul>
     </nav>
-
     <button class="standardButton" id="connectWalletButton">Connect Wallet</button>
-    
-    </header>
+</header>
 
-    <div class="standardMenu selectMultisig">
-        <div class="innerMenu">
-            
-            <div class="standardMenuTitle">
-                <div>
-                    <h1>Select Multisig</h1>
-                    <br>
-                    <h2>Multisig Wallets You Have Access To:</h2>
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <form action="" method="POST" class="form">
-                    <br>
-                    <p>*button list of all multisigs user has access to</p>
-                    <p>*click on a button will set the website to access that multisig and put that multisig title in the nav bar</p>
-                </form>
-            </div>  
+    <div class="proposalMenu">
+        <div class="proposalTitle">
+            <h1 class="proposalTitle">All Proposals</h1>
         </div>
+        <div class="proposalTitle">
+            <button class="proposalRefresh standardButton" id="displayProposalsButton">Refresh</button>
+        </div>
+       
+        <div class="proposalInnerMenu" id="proposalInnerMenu">
+            <br>
+            <div id="proposalBlocks"></div>       
+        </div>
+
     </div>
+
 </body>
 </html>

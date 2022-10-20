@@ -1,8 +1,7 @@
 export let provider = new ethers.providers.Web3Provider(window.ethereum)
 export let signer
 
-export const MultisigWalletAddress = "0x086534772dbD5AC8bF0Abbe13e64C2Fa67a4063E"
-export const CreateMultisigAddress = ""
+export const Multisig2GoAddress = "0x2298884657c1B540511504f0B8517feF935a8769"
 
 export const MultisigABI = ["function deposit() public payable",
                             "function createProposal(string memory _title, string memory _description, uint256 _ethAmount, address payable _receiver) public",
@@ -25,12 +24,13 @@ export const MultisigABI = ["function deposit() public payable",
                             "function getProposalFinishedResult(uint256 _id) public view returns(bool)"
                            ]
 
-export const CreateMultisigABI = ["function createMultisig(address[] memory _approvers, uint256 _percentageToAgree) public",
-                                  "function getCreateWallets() public returns (address[] memory)",
-                                  "function getLastCreatedWallet() public returns (address)",
-                                  "function multisigWallets(address, uint256) public returns(address)",
-                                  "function createdWalletsCount(address) public returns(uin256)"
-                                 ]
+export const Multisig2GoABI = ["function createMultisig(address[] memory _approvers, uint256 _percentageToAgree) public",
+                               "function getAllMultisigApprovers(address _multisigAddress) public view returns(address[] memory)",
+                               "function getAllUserMultisigsAccess(address _userAddress) public view returns(address[] memory)",
+                               "function multisigCreator(address) public view returns(address)",
+                               "function accessMultisigApprovers(address, uint256) public view returns(address[])",
+                               "function userMultisigsAccess(address, uint256) public view returns(address[])"
+                              ]
 
 export async function connectMetamask() {
     await provider.send("eth_requestAccounts", []);
