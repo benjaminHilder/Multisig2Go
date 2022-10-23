@@ -1,8 +1,12 @@
-import {provider, signer, CreateMultisigAddress, CreateMultisigABI, connectMetamask} from "./utils.js"
+import {provider, signer, Multisig2GoAddress, Multisig2GoABI, connectMetamask, changeSelectedMultisig} from "./utils.js"
 
 export let addresses = [];
 
 window.onload = function() {
+    let address = sessionStorage.getItem("multisigAddress")
+    const multisigContract = new ethers.Contract(address, MultisigABI, provider)
+    changeSelectedMultisig(multisigContract, address)
+
     connectMetamask();
 
     document.getElementById("connectWalletButton").addEventListener("click", connectMetamask, false);
@@ -51,6 +55,6 @@ function setupRemoveButton(btn, div) {
 }
 
 document.querySelector("#createMultisigButton").onclick = async function() {
-    const contract = new ethers(CreateMultisigAddress, CreateMultisigABI, provider);
+    const contract = new ethers(Multisig2GoAddress, Multisig2GoABI, provider);
     const txResponse = await contract.connect(signer).createMultisig(addresses, document.getElementById("createWalletAddresses").value)
 }

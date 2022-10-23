@@ -1,6 +1,8 @@
 pragma solidity 0.8.17;
 
 contract MultisigWallet {
+    string public multisigName;
+    string public multisigDescription;
     uint256 percentageToAgree;
     uint256 amountOfApprovers;
 
@@ -29,7 +31,7 @@ contract MultisigWallet {
     uint public proposalIterator;
     address multisigCreator; 
 
-    constructor(address[] memory _approvers, uint256 _percentageToAgree, address _multisigCreator) {
+    constructor(address[] memory _approvers, uint256 _percentageToAgree, address _multisigCreator, string memory _multisigName, string memory _multisigDescription) {
         for(uint256 i = 0; i < _approvers.length; i++) {
             isApprover[_approvers[i]] = true;
         }
@@ -39,6 +41,8 @@ contract MultisigWallet {
         percentageToAgree = _percentageToAgree;
         proposalIterator = 0;
         multisigCreator = _multisigCreator;
+        multisigName = _multisigName;
+        multisigDescription = _multisigDescription;
     }
 
     modifier onlyApprover() {
@@ -126,6 +130,16 @@ contract MultisigWallet {
         require(proposals[_id].isActive == false, "Proposal cannot be claimed as it is still active");
         require(proposals[_id].isClaimed == false, "This proposal has already been claimed");
         proposals[_id].reciever.transfer(proposals[_id].ethAmount);
+    }
+
+    function setMultisigName(string memory _multisigName) public {
+        require(msg.sender == multisigCreator, "Only the multisig creator can call this function");
+        multisigName = _multisigName;
+    }
+
+    function setMultisigDescription(string memory _multisigDescription) public {
+        require(msg.sender == multisigCreator, "Only the multisig creator can call this function");
+        multisigDescription = _multisigDescription;
     }
 
     function getAllApprovers() public view returns(address[] memory) {

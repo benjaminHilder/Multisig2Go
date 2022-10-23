@@ -1,7 +1,7 @@
 export let provider = new ethers.providers.Web3Provider(window.ethereum)
 export let signer
 
-export const Multisig2GoAddress = "0x2298884657c1B540511504f0B8517feF935a8769"
+export const Multisig2GoAddress = "0x860bcEd33872a383944E66dAbE7776DF8Ab414CD"
 
 export const MultisigABI = ["function deposit() public payable",
                             "function createProposal(string memory _title, string memory _description, uint256 _ethAmount, address payable _receiver) public",
@@ -11,6 +11,10 @@ export const MultisigABI = ["function deposit() public payable",
                             "function proposalIterator() public view returns(uint)",
                             "function addApprover(address _newApprover) public",
                             "function removeApprover(address _newApprover) public",
+                            "function multisigName() public view returns (string)",
+                            "function multisigDescription() public view returns (string)",
+                            "function setMultisigName(string memory _multisigName) public",
+                            "function setMultisigDescription(string memory _multisigDescription) public",
                             "function setAccountName(string memory _name) public",
                             "function getAllApprovers() public view returns(address[] memory)",
                             "function getProposalTitle(uint256 _id) public view returns(string memory)",
@@ -29,7 +33,8 @@ export const Multisig2GoABI = ["function createMultisig(address[] memory _approv
                                "function getAllUserMultisigsAccess(address _userAddress) public view returns(address[] memory)",
                                "function multisigCreator(address) public view returns(address)",
                                "function accessMultisigApprovers(address, uint256) public view returns(address[])",
-                               "function userMultisigsAccess(address, uint256) public view returns(address[])"
+                               "function userMultisigsAccess(address, uint256) public view returns(address[])",
+                               "function getAllMultisigAddresses() public view returns (address[] memory)"
                               ]
 
 export async function connectMetamask() {
@@ -51,4 +56,17 @@ export async function connectMetamask() {
 
     console.log("Account address: ", await signer.getAddress())
     console.log("chain name: " + chainName)
+}
+
+export async function changeSelectedMultisig(multisigContract) {
+    
+    if (sessionStorage.getItem("multisigAddress") != "") {
+
+        let multisigName = await multisigContract.multisigName()
+        
+        //console.log("multisig name: " + multisigName)
+        ////console.log("yes: " + await multisigContract.getMultisigName(sessionStorage.getItem("multisigAddress")))
+        document.getElementById("selectedMultisig").innerHTML = await multisigContract.multisigName()
+        //document.getElementById("selectedMultisig").innerHTML = "yes"
+    }
 }

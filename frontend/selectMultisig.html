@@ -28,18 +28,20 @@
             <li class="list-item"><a href="userInfo.html">User Info</a></li>
         </ul>
     </nav>
+
+    <button class="selectedMultisig" id="selectedMultisig"><a href="selectMultisig.html">No Multisig Selected</a></button>
     <button class="standardButton" id="connectWalletButton">Connect Wallet</button>
 </header>
 
-    <div class="proposalMenu">
-        <div class="proposalTitle">
-            <h1 class="proposalTitle">All Proposals</h1>
+    <div class="selectMultisigMenu">
+        <div class="selectMultisigTitle">
+            <h1 class="selectMultisigTitle">Select Multisig</h1>
         </div>
-        <div class="proposalTitle">
-            <button class="proposalRefresh standardButton" id="displayProposalsButton">Refresh</button>
+        <div class="selectMultisigTitle">
+            <button class="selectMultisigRefresh standardButton" id="displayselectMultisigButton">Refresh</button>
         </div>
        
-        <div class="proposalInnerMenu" id="proposalInnerMenu">
+        <div class="selectMultisigInnerMenu" id="selectMultisigInnerMenu">
             <br>
             <div id="proposalBlocks"></div>       
         </div>

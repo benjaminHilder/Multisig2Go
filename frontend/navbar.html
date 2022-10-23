@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UserInfo</title>
-
-    <link rel="stylesheet" href="style.css">
     
+    <link rel="stylesheet" href="style.css">
+
     <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
 
-    <script type="module" src="userInfo.js"></script>
+    <script type="module" src="navbar.js"></script>
 </head>
-<body>
-    <header>
-        <img class="logo" src="images/logo.png" alt="logo">
+
+        <img class="logo" src="images/logo.png" alt="logo">   
     <nav>
         <ul class="nav__links">
             <li class="list-item"><a href="home.html">Home</a></li>
@@ -26,31 +24,13 @@
             <li class="list-item"><a href="Proposals.html">Proposals</a></li>
             <li class="list-item"><a href="admin.html">Admin</a></li>
             <li class="list-item"><a href="userInfo.html">User Info</a></li>
+
         </ul>
     </nav>
-
-    <button class="selectedMultisig" id="selectedMultisig"><a href="selectMultisig.html">No Multisig Selected</a></button>
-
-    <button class="standardButton" id="connectWalletButton">Connect Wallet</button>
     
+    <button class="selectedMultisig" id="selectedMultisig"><a href="selectMultisig.html">No Multisig Selected</a></button>
+    <button class="standardButton" id="connectWalletButton">Connect Wallet</button>
     </header>
-
-    <div class="standardMenu">
-        <div class="innerMenu">
-            <div class="form-group">
-                <div class="standardMenuTitle">
-                    <h1>User Info</h1>
-                </div>
-                
-                <form action="" method="POST" class="form">
-
-                    <input class="standardMenuInput" id="setAccountInput" placeholder="&zwnj;">
-                    <label class="standardMenuLabel">Set Account Name</label> 
-
-                </form> 
-                <button class="standardButton" id="setAccountButton">Set Name</button>    
-            </div>
-        </div>
-    </div>
+    
 </body>
 </html>

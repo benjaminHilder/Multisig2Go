@@ -21,11 +21,21 @@ input[type="number"] {
   background-color: #34495e;
 }
 
+iframe.navBar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+}
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 30px 10%;
+}
+
+iframe{
+  width: 100%;
 }
 
 .logo {
@@ -97,6 +107,8 @@ button:hover {
 }
 
 
+
+
 .form-group input {
   height: 2.2em;
   background: transparent;
@@ -138,6 +150,19 @@ button:hover {
     background-color: #34495e;
 }
 
+.selectedMultisig {
+  background: transparent;
+  border: 2px solid #2ecc71;
+  border-radius: 10px;
+  outline: none;
+  padding: 0 10px;
+  font-size: 15px;
+  color: white;
+  transition: 0.3s;
+
+  margin-right: 5vh;
+}
+
 .standardButton {
   background: transparent;
   border: 2px solid #2ecc71;
@@ -147,6 +172,13 @@ button:hover {
   font-size: 15px;
   color: white;
   transition: 0.3s;
+}
+
+
+.selectedMultisig:hover {
+  background: transparent;
+  cursor: pointer;
+  border-color: #2980b9;
 }
 
 .standardButton:hover {
@@ -252,6 +284,13 @@ div.proposalInnerMenu {
   align-items: center;
   justify-content: center;
 }
+
+.selectMultisigTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 div.proposalParaDiv {
   background-color: rbga(255, 255, 255, 0.1);

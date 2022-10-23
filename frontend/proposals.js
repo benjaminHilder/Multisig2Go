@@ -1,14 +1,18 @@
-import {provider, signer, MultisigWalletAddress, MultisigABI, connectMetamask} from "./utils.js"
+import {provider, signer, MultisigABI, connectMetamask, changeSelectedMultisig} from "./utils.js"
 
 export let selectedProposalID;
 
 window.onload = function() {
+    let address = sessionStorage.getItem("multisigAddress")
+    const multisigContract = new ethers.Contract(address, MultisigABI, provider)
+    changeSelectedMultisig(multisigContract, address)
+
     connectMetamask();
     displayProposals();
 }
 
 async function displayProposals() {
-    const contract = new ethers.Contract(MultisigWalletAddress, MultisigABI, provider);
+    const contract = new ethers.Contract(sessionStorage.getItem("multisigAddress"), MultisigABI, provider);
     const maxProposals = await contract.proposalIterator()
 
     let proposalDiv = document.createElement("div");
