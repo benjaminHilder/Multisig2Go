@@ -6,9 +6,7 @@ const interval = setInterval(function() {
 }, 0)
 
 window.onload = async function() {
-    let address = sessionStorage.getItem("multisigAddress")
-    const multisigContract = new ethers.Contract(address, MultisigABI, provider)
-    changeSelectedMultisig(multisigContract, address)
+    changeSelectedMultisig()
     
     //getAllApprovers();
     connectMetamask();

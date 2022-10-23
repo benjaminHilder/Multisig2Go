@@ -3,9 +3,7 @@ import {provider, signer, MultisigABI, connectMetamask, changeSelectedMultisig} 
 export let selectedProposalID;
 
 window.onload = function() {
-    let address = sessionStorage.getItem("multisigAddress")
-    const multisigContract = new ethers.Contract(address, MultisigABI, provider)
-    changeSelectedMultisig(multisigContract, address)
+    changeSelectedMultisig()
 
     connectMetamask();
     displayProposals();

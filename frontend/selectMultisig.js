@@ -1,13 +1,16 @@
 import {provider, signer, Multisig2GoAddress, Multisig2GoABI, MultisigABI, connectMetamask, changeSelectedMultisig} from "./utils.js"
 
 window.onload = async function() {
-    let address = sessionStorage.getItem("multisigAddress")
-    const multisigContract = new ethers.Contract(address, MultisigABI, provider)
-    changeSelectedMultisig(multisigContract, address)
-
+    changeSelectedMultisig();
+    
     await connectMetamask();
-    await displayMultisigs();
+
+    if (signer != undefined) {
+        displayMultisigs();
+    } 
 }
+
+
 
 
 async function displayMultisigs() {
@@ -46,16 +49,21 @@ async function displayMultisigs() {
         btn.className = "standardButton";
         
         btn.addEventListener("click", function(){setMultisig(allMultisigAddresses[i])} , false);
-    //    ;
+        
+        btn.addEventListener("click", function(){    
+            let address = sessionStorage.getItem("multisigAddress")
+            const multisigContract = new ethers.Contract(address, MultisigABI, provider)
+            changeSelectedMultisig(multisigContract, address)
+        }, false)
+    
         btn.textContent = "Select"
-    //    
-//
+    
         proposalParaDivInner.appendChild(proposalPara);
-//
+
         proposalParaDiv.appendChild(proposalParaDivInner);
         proposalParaDiv.appendChild(btn)
         proposalDiv.appendChild(proposalParaDiv);
-//
+
     }
     document.getElementById("proposalBlocks").appendChild(proposalDiv)
     document.body.appendChild(proposalDiv);

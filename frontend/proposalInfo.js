@@ -12,9 +12,7 @@ let isClaimed;
 let finishedResult;
 
 window.onload = function() {
-    let address = sessionStorage.getItem("multisigAddress")
-    const multisigContract = new ethers.Contract(address, MultisigABI, provider)
-    changeSelectedMultisig(multisigContract, address)
+    changeSelectedMultisig()
 
     displaySelectedProposal();
     //console.log("id: " + sessionStorage.getItem("selectedProposalID"))

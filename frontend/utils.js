@@ -59,14 +59,10 @@ export async function connectMetamask() {
 }
 
 export async function changeSelectedMultisig(multisigContract) {
+    if (sessionStorage.getItem("multisigAddress") != null) {
+        let address = sessionStorage.getItem("multisigAddress")
+        const multisigContract = new ethers.Contract(address, MultisigABI, provider)
     
-    if (sessionStorage.getItem("multisigAddress") != "") {
-
-        let multisigName = await multisigContract.multisigName()
-        
-        //console.log("multisig name: " + multisigName)
-        ////console.log("yes: " + await multisigContract.getMultisigName(sessionStorage.getItem("multisigAddress")))
-        document.getElementById("selectedMultisig").innerHTML = await multisigContract.multisigName()
-        //document.getElementById("selectedMultisig").innerHTML = "yes"
+        document.getElementById("selectedMultisigLink").textContent = await multisigContract.multisigName()
     }
 }

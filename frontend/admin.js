@@ -1,9 +1,7 @@
 import {provider, signer, MultisigABI, connectMetamask, changeSelectedMultisig} from "./utils.js"
 
 window.onload = function() {
-    let address = sessionStorage.getItem("multisigAddress")
-    const multisigContract = new ethers.Contract(address, MultisigABI, provider)
-    changeSelectedMultisig(multisigContract, address)
+    changeSelectedMultisig();
 
     connectMetamask();
     
