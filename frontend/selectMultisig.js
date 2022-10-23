@@ -10,9 +10,6 @@ window.onload = async function() {
     } 
 }
 
-
-
-
 async function displayMultisigs() {
     
     const contract = new ethers.Contract(Multisig2GoAddress, Multisig2GoABI, provider);

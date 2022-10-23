@@ -32,24 +32,56 @@ async function displayProposals() {
                                     "Description: " + await contract.getProposalDescription(i) + 
                                     "<br> <br>" 
         
-        let btn = document.createElement('button');
-        btn.id = "proposalViewMoreButton";
-        btn.className = "standardButton";
+        let viewMoreBtn = document.createElement('button');
+        viewMoreBtn.id = "proposalViewMoreButton";
+        viewMoreBtn.className = "standardButton";
         
-        btn.addEventListener("click", function(){viewAllProposalInfo(i)} , false);
-        ;
-        btn.textContent = "View More"
+        viewMoreBtn.addEventListener("click", function(){viewAllProposalInfo(i)} , false);
+        viewMoreBtn.textContent = "View More"
+
+        let passBtn = document.createElement('button');
+        passBtn.id = "passButton";
+        passBtn.className = "standardButton";
         
+        passBtn.addEventListener("click", function(){voteOnProposal(true, i)} , false);
+        passBtn.textContent = "Pass"
+
+        let rejectBtn = document.createElement('button');
+        rejectBtn.id = "rejectButton";
+        rejectBtn.className = "standardButton";
+        
+        rejectBtn.addEventListener("click", function(){voteOnProposal(false, i)} , false);
+        rejectBtn.textContent = "Reject"
+
+        let claimBtn = document.createElement('button');
+        claimBtn.id = "claimButton";
+        claimBtn.className = "standardButton";
+        
+        claimBtn.addEventListener("click", function(){claimProposal()} , false);
+        claimBtn.textContent = "Claim"
 
         proposalParaDivInner.appendChild(proposalPara);
 
         proposalParaDiv.appendChild(proposalParaDivInner);
-        proposalParaDiv.appendChild(btn)
+        proposalParaDiv.appendChild(viewMoreBtn)
+        proposalParaDiv.appendChild(passBtn)
+        proposalParaDiv.appendChild(rejectBtn)
+        proposalParaDiv.appendChild(claimBtn)
         proposalDiv.appendChild(proposalParaDiv);
 
     }
     document.getElementById("proposalBlocks").appendChild(proposalDiv)
     //document.body.appendChild(proposalDiv);
+}
+
+async function voteOnProposal(result, id) {
+    const contract = new ethers.Contract(sessionStorage.getItem("multisigAddress"), MultisigABI, provider);
+    const txResponse = await contract.connect(signer).voteOnProposal(id, result)
+}
+
+async function claimProposal() {
+    const contract = new ethers.Contract(sessionStorage.getItem("multisigAddress"), MultisigABI, provider);
+    const txResponse = await contract.connect(signer).claimProposal(document.getElementById("infoInput").value)
 }
 
 async function viewAllProposalInfo(id) {
