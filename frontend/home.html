@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multisig</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="siteStyle.css">
 
     <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
@@ -29,40 +29,28 @@
             <li class="list-item"><a href="userInfo.html">User Info</a></li>
         </ul>
     </nav>
-        <button class="selectedMultisig" id="selectedMultisig"><a href="selectMultisig.html" id="selectedMultisigLink">No Multisig Selected</a></button>
+        <button class="selectedMultisig" id="selectedMultisig">no multisig selected</button>
     
     <button class="standardButton" id="connectWalletButton">Connect Wallet</button>
     
     </header>
 
     <div class="standardMenu home">
-        <div class="innerMenu">
-            
-            <div class="standardMenuTitle">
-                <div>
-                    <h1>Multisig</h1>
-                </div>
-            </div>
+        <h1 class="standardMenuTitle">Multisig</h1>
 
-            <div class="form-group">
-                <form action="" method="POST" class="form">
-                    <input type="number" class="standardMenuInput" id="depositEthInput" placeholder="&zwnj;">
-                    <label for="depositEth" class="standardMenuLabel">Deposit Eth</label>
-                    <br>
-                    <button class="standardButton" id="depositEthButton">Deposit</button>
-                </form>
-            </div>
-
-            <br>
-            
-            <h2>Multisig Eth Balance:</h2>
-            <p id="ethBalance"></p>
-            
-            <div>    
-                <h2>Approvers:</h2>
-                <p id="allApproversText"></p>
-            </div>
+        <div class="hoverInput">
+            <input type="number" required="required" id="depositEthInput" placeholder="&zwnj;">
+            <span>Deposit Eth</span>
         </div>
+         
+        <button class="standardButton" id="depositEthButton">Deposit</button>
+        
+        <h2>Multisig Eth Balance:</h2>
+        <p id="ethBalance"></p>
+        
+        <h2>Approvers:</h2>
+        <p id="allApproversText"></p>
+
     </div>
 </body>
 </html>

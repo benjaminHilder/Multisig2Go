@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+/*remove input box arrows*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+* {
+    font-family: "Quicksand", sans-serif;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    color: white;
+    background-color: #34495e;
+}
+
+/*main box menu*/
+div.standardMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2vh;
+
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+
+    border-style: solid;
+    border-color: black;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    padding: 2vh;
+    width: 45vh; 
+    height: 60vh;
+}
+
+/*buttons*/
+button {
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding:0.5vh 1vh;
+    cursor: pointer;
+}
+
+button:hover {
+    border-color: #2ecc71;
+    color: #2ecc71;
+}
+
+button:active{
+    background-color: #2ecc71;
+    color:#fff;
+    border-color: white;
+}
+
+header button {
+    margin-right: 5vh;
+}
+
+/*hover input box*/
+.hoverInput {
+    position: relative;
+    width: 41vh;
+}
+
+.hoverInput input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    outline: none;
+    color:#fff;
+    font-size: 1em;
+    transition: 0.5s;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.hoverInput span {
+    position: absolute;
+    left: 0;
+    padding:1vh;
+    top: 7%;
+    left: 1%;
+    pointer-events: none;
+    font-size: 1em;
+    color: #fff;
+    text-transform: uppercase;
+    transition: 0.5s;
+    border-radius: 1vh;
+}
+
+.hoverInput input:valid ~ span,
+.hoverInput input:focus ~ span {
+    color: #34495e;
+    transform: translateX(2.5vh) translateY(-1.3vh);
+    font-size: 0.8em;
+    padding: 0 1vh;
+    background-color: #2ecc71;
+    border-radius: 0.3vh;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+}
+
+.hoverInput input:valid,
+.hoverInput input:focus {
+    border: 1px solid #2ecc71;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/*Navbar*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+.nav__links {
+    list-style: none;
+  }
+  
+  .nav__links li {
+    display: inline-block;
+    padding: 0px 20px;
+  }
+  
+  .nav__links li a {
+    transition: all 0.3s ease 0s;
+  }
+
+
