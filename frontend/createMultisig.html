@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Multisig</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="siteStyle.css">
 
     <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
@@ -23,47 +23,32 @@
             <li class="list-item"><a href="createMultisig.html">Create Multisig</a></li>
             <li class="list-item"><a href="selectMultisig.html">Select Multisig</a></li>
             <li class="list-item"><a href="createProposal.html">Create Proposal</a></li>
-            <li class="list-item"><a href="voteOnProposal.html">Vote On Proposal</a></li>
             <li class="list-item"><a href="proposals.html">Proposals</a></li>
             <li class="list-item"><a href="admin.html">Admin</a></li>
             <li class="list-item"><a href="userInfo.html">User Info</a></li>
         </ul>
     </nav>
 
-    <button class="selectedMultisig" id="selectedMultisig"><a href="selectMultisig.html" id="selectedMultisigLink">No Multisig Selected</a></button>
+    <button class="selectedMultisig" id="selectedMultisig">No Multisig Selected</button>
     <button class="standardButton" id="connectWalletButton">Connect Wallet</button>
     </header>
 
     <div class="standardMenu createMultisig">
-        <div class="innerMenu">
-            <div class="standardMenuTitle">
-                <div>
-                    <h1>Create Multisig</h1>
-                </div>
-            </div>
+        <h1 class="standardMenuTitle">Create Multisig</h1>
 
-            <div class="form-group">
-                <div id="newTask">
-                    <form action="" method="POST" class="form"> 
-                        <input class="standardMenuInput" id="createWalletAddresses" placeholder="&zwnj;">
-                        <label class="standardMenuLabel">Approver Addresses</label> 
-                        <br>
-                    </form>
+        <div class="hoverInput">
+            <input required="required" id="createWalletAddresses">
+            <span>Approver Addresses</span>
+        </div>
+        
+        <button class="standardButton" id="addAddress">Add</button>
 
-                    <button class="standardButton" id="addAddress">Add</button>
-
-                    <div id="walletAddresses">
-                    </div>
-
-                    <form action="" method="POST" class="form"> 
-                        <input type="number" class="standardMenuInput" id="createMultisigApproveAmount" placeholder="&zwnj;">
-                        <label class="standardMenuLabel">Percentage To Pass Proposals</label> 
-                    </form>
-                
-                
-                <button class="standardButton" id="createMultisigButton">Create Multisig Wallet</button>
-            </div>
-
+        <div class="hoverInput">
+            <input type="number" required="required" id="createMultisigApproveAmount">
+            <span>Percentage to pass proposal</span>
+        </div>
+            
+            <button class="standardButton" id="createMultisigButton">Create Multisig Wallet</button>
         </div>
     </div>
 </body>

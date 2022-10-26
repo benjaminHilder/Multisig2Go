@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Proposal</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="siteStyle.css">
     
     <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
@@ -23,7 +23,6 @@
                 <li class="list-item"><a href="createMultisig.html">Create Multisig</a></li>
                 <li class="list-item"><a href="selectMultisig.html">Select Multisig</a></li>
                 <li class="list-item"><a href="createProposal.html">Create Proposal</a></li>
-                <li class="list-item"><a href="voteOnProposal.html">Vote On Proposal</a></li>
                 <li class="list-item"><a href="Proposals.html">Proposals</a></li>
                 <li class="list-item"><a href="admin.html">Admin</a></li>
                 <li class="list-item"><a href="userInfo.html">User Info</a></li>
@@ -37,36 +36,22 @@
 
 
     <div class="standardMenu admin">
-        <div class="innerMenu">
-            
-            <div class="standardMenuTitle">
-                <h1>Admin</h1>
-            </div>
+        <h1 class="standardMenuTitle">Admin</h1>
 
-            <div class="form-group">
-            
-                <form action="" method="POST" class="form">
-                    <input class="standardMenuInput" id="addApproverInput" placeholder="&zwnj;">
-                    <label class="standardMenuLabel">Add Approver</label> 
-                </form>
-                
-                <button class="standardButton" id="addApproverButton">Add</button>
-         
-                <form action="" method="POST" class="form">
-                </form>
-                <br>
-
-                <form action="" method="POST" class="form">
-                    <input class="standardMenuInput" id="removeApproverInput" placeholder="&zwnj;">
-                    <label class="standardMenuLabel">Remove Approver</label>
-                </form>
-
-                <button class="standardButton" id="removeApproverButton">Remove</button>
-            </div>            
+        <div class="hoverInput">
+            <input id="addApproverInput" required="required" placeholder="&zwnj;">
+            <span>Add Approver</span>
         </div>
+
+        <button class="standardButton" id="addApproverButton">Add</button>
+
+        <div class="hoverInput">
+            <input id="removeApproverInput" required="required" placeholder="&zwnj;">
+            <span>Remover Approver</span>
+        </div>
+
+        <button class="standardButton" id="removeApproverButton">Remove</button>            
     </div>
 
-        
- 
 </body>
 </html>

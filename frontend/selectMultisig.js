@@ -20,53 +20,44 @@ async function displayMultisigs() {
     const multisigsUserCanAccess = await contract.getAllUserMultisigsAccess(userAddress);
     const multisigsCount = await multisigsUserCanAccess.length;
     
-    let proposalDiv = document.createElement("div");
-    proposalDiv.className = "proposalBox"
-
     for(let i = 0; i < multisigsCount; i++) {
         let multisigContract = new ethers.Contract(allMultisigAddresses[i], MultisigABI, provider);
-
-        let proposalParaDiv = document.createElement('div')
-        proposalParaDiv.className = "proposalParaDiv"
-
-        let proposalParaDivInner = document.createElement('div')
-        proposalParaDivInner.className = "proposalParaDivInner"
-
-        let proposalPara = document.createElement('p')
         
-        proposalPara.id = "proposalBlock"
-        proposalPara.innerHTML = i+1 +")<br>" + 
-                                    "<h1>Multisig Name: " + await multisigContract.multisigName() + "</h1>" + 
-                                    "<br>" + 
-                                    "Multisig Description: " + "<p> " +await multisigContract.multisigDescription() + "</p>" +
-                                    "<br> <br>" 
+        let dynamicBoxDiv = document.createElement('div')
+        let dynamicPara = document.createElement('p')
         
+        dynamicPara.className = "dynamicBox"
+        
+        dynamicBoxDiv.id = "dynamicBlock" 
+        
+        dynamicPara.innerHTML = "<h1>" + await multisigContract.multisigName() + "</h1>" +  
+                                "<p> " +await multisigContract.multisigDescription() + "</p>"
+                                    
+
         let btn = document.createElement('button');
-        btn.id = "proposalViewMoreButton";
-        btn.className = "standardButton";
-        
-        btn.addEventListener("click", function(){setMultisig(allMultisigAddresses[i])} , false);
-        
-        btn.addEventListener("click", function(){    
-            let address = sessionStorage.getItem("multisigAddress")
-            const multisigContract = new ethers.Contract(address, MultisigABI, provider)
-            changeSelectedMultisig(multisigContract, address)
-        }, false)
-    
         btn.textContent = "Select"
-    
-        proposalParaDivInner.appendChild(proposalPara);
-
-        proposalParaDiv.appendChild(proposalParaDivInner);
-        proposalParaDiv.appendChild(btn)
-        proposalDiv.appendChild(proposalParaDiv);
-
+        btn.id = "selectButton";
+        btn.className = "selectButton";
+        
+        btn.addEventListener("click", 
+            function(){ 
+                setMultisig(allMultisigAddresses[i])
+            } , false);    
+        
+        btn.addEventListener("click", 
+            function(){    
+                let address = sessionStorage.getItem("multisigAddress")
+                const multisigContract = new ethers.Contract(address, MultisigABI, provider)
+                changeSelectedMultisig(multisigContract, address)
+            }, false)
+        
+        
+        dynamicPara.appendChild(btn)
+        dynamicBoxDiv.appendChild(dynamicPara)
+        document.getElementById("dynamicBlocks").appendChild(dynamicBoxDiv)
     }
-    document.getElementById("proposalBlocks").appendChild(proposalDiv)
-    document.body.appendChild(proposalDiv);
 }
 
 async function setMultisig (multisigAddress) {
     sessionStorage.setItem("multisigAddress", multisigAddress)
-
 }

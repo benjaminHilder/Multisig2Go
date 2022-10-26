@@ -17,60 +17,86 @@ async function displayProposals() {
     proposalDiv.className = "proposalBox"
 
     for(let i = 0; i < maxProposals; i++) {
-        let proposalParaDiv = document.createElement('div')
-        proposalParaDiv.className = "proposalParaDiv"
+        let dynamicBoxDiv = document.createElement('div');
+        let dynamicPara = document.createElement('p');
 
-        let proposalParaDivInner = document.createElement('div')
-        proposalParaDivInner.className = "proposalParaDivInner"
+        dynamicPara.className = "dynamicBox";
 
-        let proposalPara = document.createElement('p')
-        
-        proposalPara.id = "proposalBlock"
-        proposalPara.innerHTML = i+1 +")<br>" + 
-                                    "Title: " +  await contract.getProposalTitle(i) + 
-                                    "<br>" + 
-                                    "Description: " + await contract.getProposalDescription(i) + 
-                                    "<br> <br>" 
-        
+        dynamicBoxDiv.id = "dynamicBlock";
+
+        dynamicPara.innerHTML = "<h1>" +  await contract.getProposalTitle(i) + "</h1>" + 
+                                "<p> " + await contract.getProposalDescription(i) + "</p>" 
+                                
+
         let viewMoreBtn = document.createElement('button');
+        viewMoreBtn.textContent = "View More"
         viewMoreBtn.id = "proposalViewMoreButton";
         viewMoreBtn.className = "standardButton";
+
+        viewMoreBtn.addEventListener("click", 
+            function(){
+                viewAllProposalInfo(i)
+            } , false);
         
-        viewMoreBtn.addEventListener("click", function(){viewAllProposalInfo(i)} , false);
-        viewMoreBtn.textContent = "View More"
-
-        let passBtn = document.createElement('button');
-        passBtn.id = "passButton";
-        passBtn.className = "standardButton";
-        
-        passBtn.addEventListener("click", function(){voteOnProposal(true, i)} , false);
-        passBtn.textContent = "Pass"
-
-        let rejectBtn = document.createElement('button');
-        rejectBtn.id = "rejectButton";
-        rejectBtn.className = "standardButton";
-        
-        rejectBtn.addEventListener("click", function(){voteOnProposal(false, i)} , false);
-        rejectBtn.textContent = "Reject"
-
-        let claimBtn = document.createElement('button');
-        claimBtn.id = "claimButton";
-        claimBtn.className = "standardButton";
-        
-        claimBtn.addEventListener("click", function(){claimProposal()} , false);
-        claimBtn.textContent = "Claim"
-
-        proposalParaDivInner.appendChild(proposalPara);
-
-        proposalParaDiv.appendChild(proposalParaDivInner);
-        proposalParaDiv.appendChild(viewMoreBtn)
-        proposalParaDiv.appendChild(passBtn)
-        proposalParaDiv.appendChild(rejectBtn)
-        proposalParaDiv.appendChild(claimBtn)
-        proposalDiv.appendChild(proposalParaDiv);
-
+        dynamicPara.appendChild(viewMoreBtn);
+        dynamicBoxDiv.appendChild(dynamicPara);
+        document.getElementById("dynamicBlocks").appendChild(dynamicBoxDiv)
     }
-    document.getElementById("proposalBlocks").appendChild(proposalDiv)
+    //for(let i = 0; i < maxProposals; i++) {
+    //    let proposalParaDiv = document.createElement('div')
+    //    proposalParaDiv.className = "proposalParaDiv"
+//
+    //    let proposalParaDivInner = document.createElement('div')
+    //    proposalParaDivInner.className = "proposalParaDivInner"
+//
+    //    let proposalPara = document.createElement('p')
+    //    
+    //    proposalPara.id = "proposalBlock"
+    //    proposalPara.innerHTML = i+1 +")<br>" + 
+    //                                "Title: " +  await contract.getProposalTitle(i) + 
+    //                                "<br>" + 
+    //                                "Description: " + await contract.getProposalDescription(i) + 
+    //                                "<br> <br>" 
+    //    
+    //    let viewMoreBtn = document.createElement('button');
+    //    viewMoreBtn.id = "proposalViewMoreButton";
+    //    viewMoreBtn.className = "standardButton";
+    //    
+    //    viewMoreBtn.addEventListener("click", function(){viewAllProposalInfo(i)} , false);
+    //    viewMoreBtn.textContent = "View More"
+//
+    //    let passBtn = document.createElement('button');
+    //    passBtn.id = "passButton";
+    //    passBtn.className = "standardButton";
+    //    
+    //    passBtn.addEventListener("click", function(){voteOnProposal(true, i)} , false);
+    //    passBtn.textContent = "Pass"
+//
+    //    let rejectBtn = document.createElement('button');
+    //    rejectBtn.id = "rejectButton";
+    //    rejectBtn.className = "standardButton";
+    //    
+    //    rejectBtn.addEventListener("click", function(){voteOnProposal(false, i)} , false);
+    //    rejectBtn.textContent = "Reject"
+//
+    //    let claimBtn = document.createElement('button');
+    //    claimBtn.id = "claimButton";
+    //    claimBtn.className = "standardButton";
+    //    
+    //    claimBtn.addEventListener("click", function(){claimProposal()} , false);
+    //    claimBtn.textContent = "Claim"
+//
+    //    proposalParaDivInner.appendChild(proposalPara);
+//
+    //    proposalParaDiv.appendChild(proposalParaDivInner);
+    //    proposalParaDiv.appendChild(viewMoreBtn)
+    //    proposalParaDiv.appendChild(passBtn)
+    //    proposalParaDiv.appendChild(rejectBtn)
+    //    proposalParaDiv.appendChild(claimBtn)
+    //    proposalDiv.appendChild(proposalParaDiv);
+//
+    //}
+    //document.getElementById("proposalBlocks").appendChild(proposalDiv)
     //document.body.appendChild(proposalDiv);
 }
 

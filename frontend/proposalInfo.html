@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multisig</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="siteStyle.css">
     
     <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
@@ -23,7 +23,6 @@
             <li class="list-item"><a href="createMultisig.html">Create Multisig</a></li>
             <li class="list-item"><a href="selectMultisig.html">Select Multisig</a></li>
             <li class="list-item"><a href="createProposal.html">Create Proposal</a></li>
-            <li class="list-item"><a href="voteOnProposal.html">Vote On Proposal</a></li>
             <li class="list-item"><a href="proposals.html">Proposals</a></li>
             <li class="list-item"><a href="admin.html">Admin</a></li>
             <li class="list-item"><a href="userInfo.html">User Info</a></li>   
@@ -35,41 +34,35 @@
     </header>
 
     <div class="standardMenu proposalInformation">
-        <div class="innerMenu">
+        <h1 class="standardMenuTitle">Proposal Information</h1>
+        
+        <div class="proposalInfo">            
+            <h3 class="proposalInfoTitle">Title</h3>
+            <p class="proposalInfoRespo nse" id="proposalTitle"></p>
             
-            <div class="standardMenuTitle">
-                <h1>Proposal Information</h1>
-            </div>
+            <h3 class="proposalInfoTitle">Description</h3>
+            <p class="proposalInfoResponse" id="proposalDescription"></p>
             
-            <div class="proposalInfo">            
-                <h3 class="proposalInfoTitle">Title</h3>
-                <p class="proposalInfoResponse" id="proposalTitle"></p>
-                
-                <h3 class="proposalInfoTitle">Description</h3>
-                <p class="proposalInfoResponse" id="proposalDescription"></p>
-                
-                <h3 class="proposalInfoTitle">ETH Amount</h3>
-                <p class="proposalInfoResponse" id="proposalEthAmount"></p>
-                
-                <h3 class="proposalInfoTitle">Reciever</h3>
-                <p class="proposalInfoResponse" id="proposalReciever"></p>
-                
-                <h3 class="proposalInfoTitle">Total Approvals</h3>
-                <p class="proposalInfoResponse" id="proposalApprovals"></p>
-                
-                <h3 class="proposalInfoTitle">Total Disapprovals</h3>
-                <p class="proposalInfoResponse" id="proposalDisapprovals"></p>
-                
-                <h3 class="proposalInfoTitle">Proposal Active</h3>
-                <p class="proposalInfoResponse" id="proposalIsActive"></p>
-                
-                <h3 class="proposalInfoTitle">Proposal Been Claimed</h3>
-                <p class="proposalInfoResponse" id="proposalIsClaimed"></p>
-                
-                <h3 class="proposalInfoTitle">Finished Result</h3>
-                <p class="proposalInfoResponse" id="proposalFinishedResult"></p>
-            </div>
-
+            <h3 class="proposalInfoTitle">ETH Amount</h3>
+            <p class="proposalInfoResponse" id="proposalEthAmount"></p>
+            
+            <h3 class="proposalInfoTitle">Reciever</h3>
+            <p class="proposalInfoResponse" id="proposalReciever"></p>
+            
+            <h3 class="proposalInfoTitle">Total Approvals</h3>
+            <p class="proposalInfoResponse" id="proposalApprovals"></p>
+            
+            <h3 class="proposalInfoTitle">Total Disapprovals</h3>
+            <p class="proposalInfoResponse" id="proposalDisapprovals"></p>
+            
+            <h3 class="proposalInfoTitle">Proposal Active</h3>
+            <p class="proposalInfoResponse" id="proposalIsActive"></p>
+            
+            <h3 class="proposalInfoTitle">Proposal Been Claimed</h3>
+            <p class="proposalInfoResponse" id="proposalIsClaimed"></p>
+            
+            <h3 class="proposalInfoTitle">Finished Result</h3>
+            <p class="proposalInfoResponse" id="proposalFinishedResult"></p>
         </div>
     </div>
     

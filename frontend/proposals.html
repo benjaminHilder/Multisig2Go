@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View All Proposals</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="siteStyle.css">
     
     <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
@@ -22,7 +22,6 @@
             <li class="list-item"><a href="createMultisig.html">Create Multisig</a></li>
             <li class="list-item"><a href="selectMultisig.html">Select Multisig</a></li>
             <li class="list-item"><a href="createProposal.html">Create Proposal</a></li>
-            <li class="list-item"><a href="voteOnProposal.html">Vote On Proposal</a></li>
             <li class="list-item"><a href="Proposals.html">Proposals</a></li>
             <li class="list-item"><a href="admin.html">Admin</a></li>
             <li class="list-item"><a href="userInfo.html">User Info</a></li>
@@ -33,19 +32,12 @@
     <button class="standardButton" id="connectWalletButton">Connect Wallet</button>
 </header>
 
-    <div class="proposalMenu">
-        <div class="proposalTitle">
-            <h1 class="proposalTitle">All Proposals</h1>
+    <div class="dynamicPage">
+        <h1 class="dynamicTitle">All Proposals</h1>
+        <button class="dynamicRefresh standardButton" id="displayProposalsButton">Refresh</button>
+        
+        <div class="dynamicBlocks" id="dynamicBlocks">    
         </div>
-        <div class="proposalTitle">
-            <button class="proposalRefresh standardButton" id="displayProposalsButton">Refresh</button>
-        </div>
-       
-        <div class="proposalInnerMenu" id="proposalInnerMenu">
-            <br>
-            <div id="proposalBlocks"></div>       
-        </div>
-
     </div>
 
 </body>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Proposal</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="siteStyle.css">
     
     <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
@@ -23,7 +23,6 @@
             <li class="list-item"><a href="createMultisig.html">Create Multisig</a></li>
             <li class="list-item"><a href="selectMultisig.html">Select Multisig</a></li>
             <li class="list-item"><a href="createProposal.html">Create Proposal</a></li>
-            <li class="list-item"><a href="voteOnProposal.html">Vote On Proposal</a></li>
             <li class="list-item"><a href="Proposals.html">Proposals</a></li>
             <li class="list-item"><a href="admin.html">Admin</a></li>
             <li class="list-item"><a href="userInfo.html">User Info</a></li>
@@ -36,32 +35,29 @@
     </header>
 
     <div class="standardMenu createProposal">
-        <div class="innerMenu">
-            <div class="standardMenuTitle">
-                <h1>Create Proposaal</h1>
-            </div>
-
-            <div class="form-group">
-                <form action="" method="POST" class="form">
-                    <input class="standardMenuInput" id="createProposalInputTitle" placeholder="&zwnj;">
-                    <label class="standardMenuLabel">Title</label>
-                </form>
-                <form action="" method="POST" class="form">
-                    <input class="standardMenuInput" id="createProposalInputDescription" placeholder="&zwnj;">
-                    <label class="standardMenuLabel">Description</label>
-                </form>
-                <form action="" method="POST" class="form">
-                    <input class="standardMenuInput" type="number" id="createProposalInputEthAmount" placeholder="&zwnj;"> 
-                    <label class="standardMenuLabel">Eth Amount</label> 
-                </form>
-                <form action="" method="POST" class="form">
-                    <input class="standardMenuInput" id="createProposalInputReceiver" placeholder="&zwnj;">
-                    <label class="standardMenuLabel">Receiver Address</label> 
-                </form>
-                
-                <button class="standardButton" id="createProposalButtonSubmit">Create Proposal</button>
-            </div>
+        <h1 class="standardMenuTitle">Create Proposaal</h1>
+        
+        <div class="hoverInput">
+            <input id="createProposalInputTitle" required="required">
+            <span>Title</span>
         </div>
+
+        <div class="hoverInput">
+            <input id="createProposalInputDescription" required="required">
+            <span>Description</span>
+        </div>
+
+        <div class="hoverInput">
+            <input type="number" id="createProposalInputEthAmount" required="required">
+            <span>Eth Amount</span>
+        </div>
+
+        <div class="hoverInput">
+            <input id="createProposalInputReceiver" required="required">
+            <span>Reciever Address</span>
+        </div>
+
+        <button class="standardButton" id="createProposalButtonSubmit">Create Proposal</button>
     </div>
 
 </body>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UserInfo</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="siteStyle.css">
     
     <script src = "https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
@@ -22,7 +22,6 @@
             <li class="list-item"><a href="createMultisig.html">Create Multisig</a></li>
             <li class="list-item"><a href="selectMultisig.html">Select Multisig</a></li>
             <li class="list-item"><a href="createProposal.html">Create Proposal</a></li>
-            <li class="list-item"><a href="voteOnProposal.html">Vote On Proposal</a></li>
             <li class="list-item"><a href="Proposals.html">Proposals</a></li>
             <li class="list-item"><a href="admin.html">Admin</a></li>
             <li class="list-item"><a href="userInfo.html">User Info</a></li>
@@ -36,21 +35,14 @@
     </header>
 
     <div class="standardMenu">
-        <div class="innerMenu">
-            <div class="form-group">
-                <div class="standardMenuTitle">
-                    <h1>User Info</h1>
-                </div>
-                
-                <form action="" method="POST" class="form">
+        <h1 class="standardMenuTitle">User Info</h1>
 
-                    <input class="standardMenuInput" id="setAccountInput" placeholder="&zwnj;">
-                    <label class="standardMenuLabel">Set Account Name</label> 
-
-                </form> 
-                <button class="standardButton" id="setAccountButton">Set Name</button>    
-            </div>
+        <div class="hoverInput">
+            <input id="setAccountInput" required="required">
+            <span>Set Account Name</span>
         </div>
+
+        <button class="standardButton" id="setAccountButton">Set Name</button>    
     </div>
 </body>
 </html>

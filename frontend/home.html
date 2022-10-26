@@ -23,14 +23,12 @@
             <li class="list-item"><a href="createMultisig.html">Create Multisig</a></li>
             <li class="list-item"><a href="selectMultisig.html">Select Multisig</a></li>
             <li class="list-item"><a href="createProposal.html">Create Proposal</a></li>
-            <li class="list-item"><a href="voteOnProposal.html">Vote On Proposal</a></li>
             <li class="list-item"><a href="proposals.html">Proposals</a></li>
             <li class="list-item"><a href="admin.html">Admin</a></li>
             <li class="list-item"><a href="userInfo.html">User Info</a></li>
         </ul>
     </nav>
-        <button class="selectedMultisig" id="selectedMultisig">no multisig selected</button>
-    
+    <button class="selectedMultisig" id="selectedMultisig">no multisig selected</button>
     <button class="standardButton" id="connectWalletButton">Connect Wallet</button>
     
     </header>
@@ -39,17 +37,17 @@
         <h1 class="standardMenuTitle">Multisig</h1>
 
         <div class="hoverInput">
-            <input type="number" required="required" id="depositEthInput" placeholder="&zwnj;">
+            <input type="number" required="required" id="depositEthInput">
             <span>Deposit Eth</span>
         </div>
          
         <button class="standardButton" id="depositEthButton">Deposit</button>
         
-        <h2>Multisig Eth Balance:</h2>
-        <p id="ethBalance"></p>
+        <h2 class="standardMenuTitle">Multisig Eth Balance:</h2>
+        <p class="standardMenuText" id="ethBalance"></p>
         
-        <h2>Approvers:</h2>
-        <p id="allApproversText"></p>
+        <h2 class="standardMenuTitle">Approvers:</h2>
+        <p class="standardMenuText" id="allApproversText"></p>
 
     </div>
 </body>

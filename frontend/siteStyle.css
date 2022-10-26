@@ -46,6 +46,28 @@ div.standardMenu {
     height: 60vh;
 }
 
+div.proposalInfo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+
+  border-style: solid;
+  border-color: black;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+  padding: 2vh;
+  width: 60vh; 
+  height: 60vh;
+}
+
 /*buttons*/
 button {
     color: #fff;
@@ -53,6 +75,8 @@ button {
     border-radius: 5px;
     padding:0.5vh 1vh;
     cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);  
 }
 
 button:hover {
@@ -88,6 +112,12 @@ header button {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
 }
 
+.hoverInput input:hover {
+  border-color: #2ecc71;
+
+  transition: 0.4s ease;
+}
+
 .hoverInput span {
     position: absolute;
     left: 0;
@@ -111,13 +141,76 @@ header button {
     background-color: #2ecc71;
     border-radius: 0.3vh;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-
 }
 
 .hoverInput input:valid,
 .hoverInput input:focus {
     border: 1px solid #2ecc71;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/*dynamic page*/
+div.dynamicBlocks {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 2vh;
+
+  flex-wrap: wrap;
+  margin-top:2vh;
+  margin-bottom: 2vh;
+}
+
+.dynamicBox {
+  display: flex;
+  align-items: center;
+  
+  flex-direction: column;
+  gap: 2vh;
+
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+  padding: 2vh;
+  width: 45vh; 
+  height: 60vh;
+
+  overflow:auto;
+  transition:3s;
+}
+
+.dynamicBox h1 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.dynamicBox::-webkit-scrollbar{
+  position:absolute;
+}
+
+.dynamicBox::-webkit-scrollbar{
+  position: absolute;
+}
+
+div.dynamicPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/*Proposal Info*/
+div.proposalInfo {
+
+ 
+}
+
+div.proposalInfo p {
+  
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
 }
 
 /*Navbar*/
@@ -130,6 +223,7 @@ header {
 
 .nav__links {
     list-style: none;
+    
   }
   
   .nav__links li {
@@ -141,4 +235,38 @@ header {
     transition: all 0.3s ease 0s;
   }
 
+  .list-item::after {
+    content: "";
+    height: 2px;
+    width: 0%;
+    background-color: white;
+    display: block;
+    transition: 0.4s ease;
+  }
 
+  .list-item:hover::after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    background-color: #2ecc71;
+    display: block;
+    transition: 0.4s ease;
+  }
+  
+  a:hover {
+    color:#2ecc71;
+    transition: 0.4s ease;
+  }
+
+  /*title*/
+
+  h1.standardMenuTitle {
+    text-transform: uppercase;
+    position:absolute;
+    text-align: center;
+    top: 1.5vh;
+  }
+
+  h2.standardMenuTitle {
+    text-transform: uppercase;
+  }
