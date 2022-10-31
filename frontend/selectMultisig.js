@@ -1,4 +1,4 @@
-import {provider, signer, Multisig2GoAddress, Multisig2GoABI, MultisigABI, connectMetamask, changeSelectedMultisig} from "./utils.js"
+import {provider, signer, Multisig2GoAddress, Multisig2GoABI, MultisigABI, connectMetamask, changeSelectedMultisig, openMultisigSelectPage} from "./utils.js"
 
 window.onload = async function() {
     changeSelectedMultisig();
@@ -8,6 +8,8 @@ window.onload = async function() {
     if (signer != undefined) {
         displayMultisigs();
     } 
+
+    document.getElementById("selectedMultisig").addEventListener("click", openMultisigSelectPage, false);
 }
 
 async function displayMultisigs() {

@@ -1,4 +1,4 @@
-import {provider, signer, MultisigABI, connectMetamask, changeSelectedMultisig} from "./utils.js"
+import {provider, signer, MultisigABI, connectMetamask, changeSelectedMultisig, openMultisigSelectPage} from "./utils.js"
 
 export let selectedProposalID;
 
@@ -7,6 +7,8 @@ window.onload = function() {
 
     connectMetamask();
     displayProposals();
+
+    document.getElementById("selectedMultisig").addEventListener("click", openMultisigSelectPage, false);
 }
 
 async function displayProposals() {

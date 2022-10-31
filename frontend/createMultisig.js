@@ -1,4 +1,4 @@
-import {provider, signer, Multisig2GoAddress, Multisig2GoABI, connectMetamask, changeSelectedMultisig} from "./utils.js"
+import {provider, signer, Multisig2GoAddress, Multisig2GoABI, connectMetamask, changeSelectedMultisig, openMultisigSelectPage} from "./utils.js"
 
 export let addresses = [];
 
@@ -9,6 +9,7 @@ window.onload = function() {
 
     document.getElementById("connectWalletButton").addEventListener("click", connectMetamask, false);
     document.getElementById("addAddress").addEventListener("click", manageWalletAddresses, false);
+    document.getElementById("selectedMultisig").addEventListener("click", openMultisigSelectPage, false);
 }
 
 function manageWalletAddresses() {

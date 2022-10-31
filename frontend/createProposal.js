@@ -1,4 +1,4 @@
-import {provider, signer,  MultisigABI, connectMetamask, changeSelectedMultisig} from "./utils.js"
+import {provider, signer,  MultisigABI, connectMetamask, changeSelectedMultisig, openMultisigSelectPage} from "./utils.js"
 
 window.onload = function() {
    changeSelectedMultisig()
@@ -7,7 +7,7 @@ window.onload = function() {
 
     document.getElementById("createProposalButtonSubmit").addEventListener("click", createProposal, false);
     document.getElementById("connectWalletButton").addEventListener("click", connectMetamask, false);
-   
+    document.getElementById("selectedMultisig").addEventListener("click", openMultisigSelectPage, false);s
 }
 
 async function createProposal() {

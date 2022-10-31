@@ -1,4 +1,4 @@
-import {provider, signer, MultisigABI, connectMetamask, changeSelectedMultisig} from "./utils.js"
+import {provider, signer, MultisigABI, connectMetamask, changeSelectedMultisig, openMultisigSelectPage} from "./utils.js"
 
 //
 const interval = setInterval(function() {
@@ -13,6 +13,7 @@ window.onload = async function() {
     
     document.getElementById("depositEthButton").addEventListener("click", depositEth, false);
     document.getElementById("connectWalletButton").addEventListener("click", connectMetamask, false);
+    document.getElementById("selectedMultisig").addEventListener("click", openMultisigSelectPage, false);
 
     console.log("provider " +  provider)
     console.log("signer " + signer)

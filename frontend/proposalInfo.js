@@ -1,4 +1,4 @@
-import {provider, signer,  MultisigABI, connectMetamask, changeSelectedMultisig} from "./utils.js"
+import {provider, signer,  MultisigABI, connectMetamask, changeSelectedMultisig, openMultisigSelectPage} from "./utils.js"
 import {selectedProposalID} from "./proposals.js";
 
 let title;
@@ -13,8 +13,8 @@ let finishedResult;
 
 window.onload = function() {
     changeSelectedMultisig()
-
     displaySelectedProposal();
+    document.getElementById("selectedMultisig").addEventListener("click", openMultisigSelectPage, false);
     //console.log("id: " + sessionStorage.getItem("selectedProposalID"))
     //getProposalInfo()
     //displayProposalInfo()

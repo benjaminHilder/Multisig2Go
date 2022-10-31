@@ -1,10 +1,11 @@
-import {provider, signer, MultisigABI, connectMetamask, changeSelectedMultisig} from "./utils.js"
+import {provider, signer, MultisigABI, connectMetamask, changeSelectedMultisig, openMultisigSelectPage} from "./utils.js"
 
 window.onload = function() {
     changeSelectedMultisig()
 
     connectMetamask();
     document.getElementById("setAccountButton").addEventListener("click", setAccountName, false);   
+    document.getElementById("selectedMultisig").addEventListener("click", openMultisigSelectPage, false);
 }
 
 async function setAccountName() {
