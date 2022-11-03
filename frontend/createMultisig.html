@@ -36,16 +36,28 @@
         <h1 class="standardMenuTitle">Create Multisig</h1>
 
         <div class="hoverInput">
+            <input required="required" id="createMultisigName">
+            <span>Multisig Name</span>
+        </div>
+
+        <div class="hoverInput">
+            <input required="required" id="createMultisigDescription">
+            <span>Multisig Description</span>
+        </div>
+
+        <div class="hoverInput">
             <input required="required" id="createWalletAddresses">
             <span>Approver Addresses</span>
         </div>
         
+        <div id="walletAddresses"></div>
         <button class="standardButton" id="addAddress">Add</button>
 
         <div class="hoverInput">
             <input type="number" required="required" id="createMultisigApproveAmount">
             <span>Percentage to pass proposal</span>
         </div>
+
             
             <button class="standardButton" id="createMultisigButton">Create Multisig Wallet</button>
         </div>

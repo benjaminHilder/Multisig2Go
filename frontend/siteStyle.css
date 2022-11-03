@@ -68,6 +68,28 @@ div.proposalInfo{
   height: 60vh;
 }
 
+div.createMultisig{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+
+  border-style: solid;
+  border-color: black;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+  padding: 2vh;
+  width: 68vh; 
+  height: 60vh;
+}
+
 /*buttons*/
 button {
     color: #fff;

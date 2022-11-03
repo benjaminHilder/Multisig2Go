@@ -28,7 +28,7 @@ export const MultisigABI = ["function deposit() public payable",
                             "function getProposalFinishedResult(uint256 _id) public view returns(bool)"
                            ]
 
-export const Multisig2GoABI = ["function createMultisig(address[] memory _approvers, uint256 _percentageToAgree) public",
+export const Multisig2GoABI = ["function createMultisig(address[] memory _approvers, uint256 _percentageToAgree, string memory _multisigName, string memory _multisigDescription) public",
                                "function getAllMultisigApprovers(address _multisigAddress) public view returns(address[] memory)",
                                "function getAllUserMultisigsAccess(address _userAddress) public view returns(address[] memory)",
                                "function multisigCreator(address) public view returns(address)",

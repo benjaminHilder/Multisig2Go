@@ -33,7 +33,7 @@ async function displayMultisigs() {
         dynamicBoxDiv.id = "dynamicBlock" 
         
         dynamicPara.innerHTML = "<h1>" + await multisigContract.multisigName() + "</h1>" +  
-                                "<p> " +await multisigContract.multisigDescription() + "</p>"
+                                "<p> " + await multisigContract.multisigDescription() + "</p>"
                                     
 
         let btn = document.createElement('button');

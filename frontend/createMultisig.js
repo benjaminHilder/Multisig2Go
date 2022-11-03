@@ -31,7 +31,7 @@ function addWalletToList(address) {
     newAddressDiv.className = "address"
 
     newAddressSpan.id = "name"
-    newAddressSpan.textContent = address
+    newAddressSpan.textContent = address + " "
 
     newAddressDeleteButton.className = "standardButton delete";
     newAddressDeleteButton.textContent = "X";
@@ -54,6 +54,6 @@ function setupRemoveButton(btn, div) {
 }
 
 document.querySelector("#createMultisigButton").onclick = async function() {
-    const contract = new ethers(Multisig2GoAddress, Multisig2GoABI, provider);
-    const txResponse = await contract.connect(signer).createMultisig(addresses, document.getElementById("createWalletAddresses").value)
+    const contract = new ethers.Contract(Multisig2GoAddress, Multisig2GoABI, provider);
+    const txResponse = await contract.connect(signer).createMultisig(addresses, document.getElementById("createMultisigApproveAmount").value, document.getElementById("createMultisigName").value, document.getElementById("createMultisigDescription").value)
 }
