@@ -1,6 +1,6 @@
 # Multisig2Go
 
-##Dapp
+## Dapp
 [Click here to open dapp (Goerli testnet only)](https://benjaminhilder.github.io/Multisig2Go/frontend/home.html)
 
 ## Goal
