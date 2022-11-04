@@ -14,5 +14,3 @@ The goal of this project is to easily allow anyone to create and manage a multi 
 5) Start a live server (bottom left corner in vscode)
 6) In your web browser selected frontend
 7) select home.html
-
-<img src="https://i.imgur.com/LONnbgY.png">
