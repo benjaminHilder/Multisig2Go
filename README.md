@@ -1,5 +1,8 @@
 # Multisig2Go
 
+##Dapp
+[Click here to open dapp (Goerli testnet only)](https://benjaminhilder.github.io/Multisig2Go/frontend/home.html)
+
 ## Goal
 The goal of this project is to easily allow anyone to create and manage a multi signature wallet. Allowing approved wallets to create proposals on how they want the funds managed enables the capability of a decentralised multisig wallet in an easy but effective UI 
 
