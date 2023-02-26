@@ -143,8 +143,8 @@ header button {
 .hoverInput span {
     position: absolute;
     left: 0;
-    padding:1vh;
-    top: 7%;
+    padding:0.5vh;
+    top: 15%;
     left: 1%;
     pointer-events: none;
     font-size: 1em;
